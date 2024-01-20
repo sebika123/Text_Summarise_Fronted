@@ -1,0 +1,66 @@
+
+
+.text-container {
+  text-align: justify;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: 40vw;
+  max-width: 600px;
+  margin-top: 130px; /* Adjust this value for the desired vertical shift */
+  animation: colorChange 5s infinite alternate; /* Added color animation */
+}
+
+@keyframes colorChange {
+  from {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  to {
+    background-color: rgba(11, 52, 154, 0.5); /* Set the desired end color */
+  }
+}
+
+.text-container h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.text-container p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.text-container a {
+  color: #ffcc00;
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #fff;
+  transition: opacity 0.5s;
+}
+
+button {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.footer {
+  text-align: center;
+  margin-top: 20px; /* Check this value and adjust if necessary */
+  padding: 10px;
+  background-color: rgba(11, 52, 154, 0.5);
+  border-radius: 8px;
+  color: #fff;
+}
