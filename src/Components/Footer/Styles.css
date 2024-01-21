@@ -1,0 +1,11 @@
+
+
+.footer {
+    text-align: center;
+    margin-top: 200px; /* Adjust this value as needed */
+    padding: 10px;
+    background-color: rgba(11, 52, 154, 0.5);
+    border-radius: 8px;
+    color: #fff;
+  }
+  
