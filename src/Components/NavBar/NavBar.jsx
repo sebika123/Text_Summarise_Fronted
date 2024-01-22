@@ -1,27 +1,38 @@
-import React from 'react'
-import './Styles.css'
-import { useUserAuth } from '../../Context/UserAuthContext'
-
+import React, { useEffect } from 'react';
+import './Styles.css';
+import { useUserAuth } from '../../Context/UserAuthContext';
 
 const NavBar = () => {
-    const { user,logOut } = useUserAuth()
-    const handleLogout = async() => {
-        try {
-            await logOut()
-        } catch (error) {
-            console.log(error)
-        }
-    }
+  const { user, logOut } = useUserAuth();
 
-    return (
-        <nav>
-            <h1>Text Summariser</h1>
-            <ul>
-                <li title='Username'><span>{user && user.email}</span></li>
-                <li title='Logout'><button onClick={handleLogout} id='logout-button'><i className="ri-logout-box-r-line"></i></button></li>
-            </ul>
-        </nav>
-    )
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  return (
+    <nav>
+      <h1>Text Summariser</h1>
+      <ul>
+        <li title='Username'>
+          {user && (
+            <>
+              <img
+                src={user.profilePicture}
+                alt="Profile"
+                style={{ width: '30px', height: '30px', borderRadius: '50%' }}
+              />
+              <span>{user.name}</span>
+            </>
+          )}
+        </li>
+        <li title='Logout'>
+          <button onClick={logOut} id='logout-button'>
+            <i className="ri-logout-box-r-line"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
-export default NavBar
+export default NavBar;
