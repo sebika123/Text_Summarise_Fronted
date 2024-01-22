@@ -118,10 +118,10 @@ const TextBox = () => {
     <div id="parent">
       <div id="txt-box">
         <form id="inp-box" onSubmit={handleSubmit}>
-          <label htmlFor="">Enter Your Text Here</label>
+        <div> <label htmlFor="">Enter Your Text Here</label></div> 
           <textarea cols="50" rows="10" id="txt-area" onChange={handleChange}></textarea>
-          <div>Word Count: {inputWordCount}</div>
-          <label htmlFor="">Enter final Percentage you want</label>
+          <div> Word Count: {inputWordCount}</div>
+        <div> <label htmlFor="">Enter final Percentage you want</label></div> 
           <input type="number" min="1" max="99" value={percentage} onChange={handlePercentageChange} />
           <div id="btn">
             <button type="submit">Summarise</button>
