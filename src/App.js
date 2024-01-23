@@ -8,23 +8,6 @@ import { UserAuthContextProvider } from './Context/UserAuthContext';
 import ProtectedRoute from './ProtectedRoutes';
 import Home from './Components/Home/Home';
 
-// function App() {
-//   return (
-//     <>
-//       <div id="main">
-//         <UserAuthContextProvider>
-//           <Routes>
-//             <Route path="/" element={<LoginForm />} />
-//             <Route path="/Register" element={<Register />} />
-//             <Route path="/Home" element={<ProtectedRoute><NavBar /><TextBox /></ProtectedRoute>} />
-//           </Routes>
-//         </UserAuthContextProvider>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;
 
 function App() {
   return (

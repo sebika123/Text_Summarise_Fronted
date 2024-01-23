@@ -1,11 +1,29 @@
-
-
 .footer {
-    text-align: center;
-    margin-top: 200px; /* Adjust this value as needed */
-    padding: 10px;
-    background-color: rgba(11, 52, 154, 0.5);
-    border-radius: 8px;
-    color: #fff;
-  }
-  
+  background-color: #f8f9fa;
+  padding: 20px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  margin: 0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.footer-links li {
+  margin-left: 15px;
+}
+
+.footer-links li a {
+  color: #333;
+  text-decoration: none;
+}
