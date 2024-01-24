@@ -1,4 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { updateProfile } from "firebase/auth";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -8,7 +11,6 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { auth } from "../firebase";
-
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
@@ -30,6 +32,49 @@ export function UserAuthContextProvider({ children }) {
     const googleAuthProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleAuthProvider);
   }
+
+  function updateUserProfile(username, profilePicture) {
+    setUser((prevUser) => ({
+      ...prevUser,
+      name: username,
+      profilePicture: profilePicture,
+    }));
+  }
+  
+  function uploadProfilePicture(imageFile) {
+    const storage = getStorage();
+    const storageRef = ref(storage, 'profilePictures/' + imageFile.name);
+  
+    const uploadTask = uploadBytesResumable(storageRef, imageFile);
+  
+    uploadTask.on('state_changed', 
+      (snapshot) => {
+        // Handle the upload progress here
+      }, 
+      (error) => {
+        // Handle unsuccessful uploads
+        console.error(error);
+      }, 
+      () => {
+        // Handle successful uploads on complete
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log('File available at', downloadURL);
+          
+        // Then, update the user's profile in Firebase Authentication
+        updateProfile(auth.currentUser, {
+          photoURL: downloadURL
+        }).then(() => {
+          // The user's profile has been updated.
+      
+          // Update the user state
+          updateUserProfile(auth.currentUser.displayName, downloadURL);
+        }).catch((error) => {
+          // An error occurred
+          console.error(error);
+        });
+      });
+    }
+    );}
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -57,7 +102,9 @@ export function UserAuthContextProvider({ children }) {
     signUp,
     logOut,
     googleSignIn,
-    setUser
+    setUser,
+    updateUserProfile, // Add this line
+    uploadProfilePicture, // Add this line
   };
 
   return (
