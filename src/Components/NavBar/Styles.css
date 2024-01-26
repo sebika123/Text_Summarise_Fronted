@@ -15,6 +15,7 @@ nav, ul {
 
 nav ul li span {
     margin-left: 10px;
+    align-items: center;
 }
 
 nav ul li img {
@@ -24,10 +25,15 @@ nav ul li img {
 }
 
 nav {
-    padding: var(--margin-default) 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 16px; 
     width: 80vw;
-    margin-top: 12px;
-    border-radius: 50px;
+    height : 6vw;
+    margin-top: 25px; /* Adjusted margin-top */
+    border-radius: 35px; /* Adjusted border-radius */
     position: absolute;
     top: 0;
     background-color: white;
@@ -36,8 +42,9 @@ nav {
 }
 
 h1, li {
-    margin: var(--margin-default);
     font-size: var(--font-size-default);
+    display: flex; /* Add this line */
+    align-items: center; /* Add this line */
 }
 
 h1 {
@@ -56,7 +63,32 @@ li {
     background-color: rgba(0, 0, 0, 0.196);
     padding: auto;
 }
+.history-popup {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    width:200px; /* Adjust as needed */
+    background-color: #fff; /* Adjust as needed */
+    padding: 20px; /* Adjust as needed */
+    border-radius: 10px; /* Adjust as needed */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adjust as needed */
+    overflow-y: auto; /* Add a scrollbar if the content is too long */
+}
+.history-popup ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+}
 
+.history-popup ul li {
+    display: block; /* Display the list items in a vertical list */
+    padding: 10px 0; /* Add some vertical padding between list items */
+    border-bottom: 1px solid #ddd; /* Add a bottom border to each list item */
+}
+
+.history-popup ul li:last-child {
+    border-bottom: none; /* Remove the bottom border from the last list item */
+}
 #logout-button {
     background-color: rgb(255, 34, 0);
     width: var(--logout-button-size);

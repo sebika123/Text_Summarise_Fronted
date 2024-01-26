@@ -6,7 +6,6 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -16,10 +15,13 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebase";
+import { useHistory } from "../Components/HistoryContext"; 
+
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
+  const { addToHistory } = useHistory(); // Use the useHistory hook
 
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
@@ -59,7 +61,7 @@ export function UserAuthContextProvider({ children }) {
 
   function uploadProfilePicture(imageFile) {
     const storage = getStorage();
-    const storageRef = ref(storage, "profilePictures/" + imageFile.name);
+    const storageRef = ref(storage, `profilePictures/${imageFile.name}`);
 
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
@@ -86,6 +88,12 @@ export function UserAuthContextProvider({ children }) {
 
               // Update the user state
               updateUserProfile(auth.currentUser.displayName, downloadURL);
+
+              // Add user info to history
+              addToHistory(
+                { input: "Profile Picture Update", output: "Success" },
+                auth.currentUser.uid
+              );
             })
             .catch((error) => {
               // An error occurred
@@ -124,8 +132,8 @@ export function UserAuthContextProvider({ children }) {
     googleSignIn,
     UserProfile,
     setUser,
-    updateUserProfile, // Add this line
-    uploadProfilePicture, // Add this line
+    updateUserProfile,
+    uploadProfilePicture,
   };
 
   return (

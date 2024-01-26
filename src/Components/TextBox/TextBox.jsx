@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import './Styles.css';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
+import { useHistory } from '../../Components/HistoryContext';
+import { useUserAuth } from '../../Context/UserAuthContext'; // Add this import
 
 const TextBox = () => {
+  const { user, logOut } = useUserAuth();
+  const { history, addToHistory } = useHistory();
   const [formData, setFormData] = useState('');
   const [summaryData, setSummaryData] = useState({});
   const [inputWordCount, setInputWordCount] = useState(0);
   const [outputWordCount, setOutputWordCount] = useState(0);
-  const [percentage, setPercentage] = useState(30); 
-  const [showOutput, setShowOutput] = useState(false); 
-  const [history, setHistory] = useState([]);
+  const [percentage, setPercentage] = useState(30);
+  const [showOutput, setShowOutput] = useState(false);
 
   useEffect(() => {
-    const historyFromLocalStorage = JSON.parse(localStorage.getItem('history')) || [];
-    setHistory(historyFromLocalStorage);
-  }, []);
-
-  const addToHistory = (data) => {
-    const updatedHistory = [data, ...history];
-    setHistory(updatedHistory);
-    localStorage.setItem('history', JSON.stringify(updatedHistory));
-  };
+    setFormData('');
+    setInputWordCount(0);
+    setSummaryData({});
+    setShowOutput(false);
+  }, [showOutput]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,11 +32,10 @@ const TextBox = () => {
     axios
       .post('http://127.0.0.1:5000/analyze', data)
       .then((response) => {
-        console.log('Data sent successfully:', response.data);
         setSummaryData(response.data);
         setOutputWordCount(response.data.summary.split(' ').length);
-        setShowOutput(true); // Set showOutput to true after getting the response
-        addToHistory({ input: formData, output: response.data.summary });
+        setShowOutput(true);
+        addToHistory({ input: formData, output: response.data.summary }, user.uid); // Assuming userId is available
       })
       .catch((error) => {
         console.error('Error sending data:', error);
@@ -93,7 +90,7 @@ const TextBox = () => {
           ))}
         </ul>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
