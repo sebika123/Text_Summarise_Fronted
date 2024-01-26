@@ -69,13 +69,18 @@ hr {
 }
 .logo-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: var(--default-margin);
+    justify-content: center;
   }
   
   .logo-container img {
-    width: 100px; /* Adjust this value to change the size of the logo */
+    width: 100px;
+  }
+  
+  .logo-container h1 {
+    font-size: 1.5em; 
+    margin: 0;
   }
 .error-msg {
     color: #721c24;

@@ -56,6 +56,7 @@ const Register = () => {
     <>
       <div className="logo-container">
         <img src={logo} alt="Logo" />
+        <h1>SummarEase</h1> 
       </div>
       <form onSubmit={handleSubmit} id="registeration-form">
         <h1>Register</h1>

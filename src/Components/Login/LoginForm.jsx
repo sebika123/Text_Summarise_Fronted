@@ -55,6 +55,7 @@ const LoginForm = () => {
     <>
       <div className="logo-container">
         <img src={logo} alt="Logo" />
+        <h1>SummarEase</h1> 
       </div>
       <form
         onSubmit={handleSubmit_signin_with_email_and_password}

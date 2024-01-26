@@ -25,6 +25,7 @@ function App() {
                 <ProtectedRoute>
                   <NavBar />
                   <Home />
+                  <Footer/>
                 </ProtectedRoute>
               }
             />
