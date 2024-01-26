@@ -1,24 +1,35 @@
-:root{
+:root {
     --btn-clr: rgb(58, 143, 255);
-    --border-clr:rgba(100, 100, 100, 0.318);
-}
-
-#registeration-form {
+    --border-clr: rgba(100, 100, 100, 0.318);
+  }
+  
+  body {
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #registeration-form {
     text-align: center;
     border: transparent;
     border-radius: 6px;
-    box-shadow: rgba(67, 71, 85, 0.192) 0px 0px 0.25em, rgba(90, 124, 188, 0.027) 0px 0.25em 1em;
+    box-shadow: rgba(67, 71, 85, 0.192) 0px 0px 0.25em,
+      rgba(90, 124, 188, 0.027) 0px 0.25em 1em;
     background-color: white;
     opacity: 1;
-}
-
-h1 {
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  h1 {
     margin: 10px;
     font-size: 32px;
-}
-
-input,
-button {
+  }
+  
+  input,
+  button {
     padding: 10px;
     margin: 15px;
     width: 250px;
@@ -28,34 +39,47 @@ button {
     font-size: 16px;
     font-weight: 500;
     border: 1px solid var(--border-clr);
-}
-
-button {
+  }
+  
+  button {
     border: transparent;
-    background-color:var(--btn-clr);
+    background-color: var(--btn-clr);
     color: white;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;}
-
-input::placeholder {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  }
+  
+  input::placeholder {
     font-size: 16px;
     font-weight: 500;
-}
-
-hr{
+  }
+  
+  hr {
     width: 80%;
     margin: auto;
-}
-
-p{
+  }
+  
+  p {
     margin: 15px;
     font-weight: 500;
-}
-
-.error-msg{
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--default-margin);
+  }
+  
+  .logo-container img {
+    width: 100px; 
+  }
+  
+  .error-msg {
     color: red;
     background-color: rgba(255, 0, 0, 0.07);
     padding: 8px;
     margin: 10px;
     border-radius: 6px;
     border: transparent;
-}
+  }
+  

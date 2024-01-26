@@ -67,7 +67,16 @@ hr {
     border-top: 1px solid #dee2e6;
     margin: var(--default-margin) 0;
 }
-
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--default-margin);
+  }
+  
+  .logo-container img {
+    width: 100px; /* Adjust this value to change the size of the logo */
+  }
 .error-msg {
     color: #721c24;
     background-color: #f8d7da;

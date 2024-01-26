@@ -40,7 +40,18 @@ export function UserAuthContextProvider({ children }) {
       profilePicture: profilePicture,
     }));
   }
+
+  function UserProfile() {
+    const { user } = useUserAuth();
   
+    return (
+      <div>
+        <h1>{user.name}</h1>
+        <img src={user.profilePicture} alt="Profile" />
+      </div>
+    );
+  }
+
   function uploadProfilePicture(imageFile) {
     const storage = getStorage();
     const storageRef = ref(storage, 'profilePictures/' + imageFile.name);
@@ -101,7 +112,7 @@ export function UserAuthContextProvider({ children }) {
     logIn,
     signUp,
     logOut,
-    googleSignIn,
+    googleSignIn,UserProfile,
     setUser,
     updateUserProfile, // Add this line
     uploadProfilePicture, // Add this line
