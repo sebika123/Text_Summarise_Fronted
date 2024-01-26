@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   background-image: url('background.webp');
   background-size: cover;
   background-position: center;
@@ -24,8 +24,8 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-top: 60px; /* Add top padding equal to the height of the navbar */
-  padding-bottom: 20px; /* Add bottom padding equal to the height of the footer */
+  padding-top: 60px;
+  padding-bottom: 20px;
 }
 
 #txt-box {
@@ -103,6 +103,11 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  #inp-box {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
 

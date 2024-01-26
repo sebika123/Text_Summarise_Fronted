@@ -17,11 +17,11 @@ const NavBar = () => {
           {user && (
             <>
               <img
-                src={user.profilePicture}
+                src={user.profilePicture || 'default-profile-picture.png'} // Use a default image if user.profilePicture is not set
                 alt="Profile"
                 style={{ width: '30px', height: '30px', borderRadius: '50%' }}
               />
-              <span>{user.name}</span>
+              <span>{user.username || user.name}</span> 
             </>
           )}
         </li>
