@@ -66,12 +66,12 @@
   .logo-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; Remove this line */
     margin-bottom: var(--default-margin);
   }
-  
   .logo-container img {
-    width: 100px; 
+    width: 100px;
+    margin-top: 150px;
   }
   
   .error-msg {

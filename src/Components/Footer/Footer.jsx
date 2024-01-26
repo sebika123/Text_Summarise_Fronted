@@ -1,8 +1,8 @@
 import React from 'react';
-import './Styles.css'; // Importing a CSS file for styling
+import './Styles.css'; 
 
 const Footer = () => {
-  const year = new Date().getFullYear(); // This will always keep the copyright year current
+  const year = new Date().getFullYear(); 
 
   return (
     <footer className="footer">

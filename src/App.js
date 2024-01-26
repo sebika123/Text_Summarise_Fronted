@@ -7,6 +7,7 @@ import TextBox from './Components/TextBox/TextBox';
 import { UserAuthContextProvider } from './Context/UserAuthContext';
 import ProtectedRoute from './ProtectedRoutes';
 import Home from './Components/Home/Home';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {

@@ -1,6 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { updateProfile } from "firebase/auth";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 import {
   createUserWithEmailAndPassword,
@@ -8,7 +13,7 @@ import {
   onAuthStateChanged,
   signOut,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebase";
 const userAuthContext = createContext();
@@ -43,7 +48,7 @@ export function UserAuthContextProvider({ children }) {
 
   function UserProfile() {
     const { user } = useUserAuth();
-  
+
     return (
       <div>
         <h1>{user.name}</h1>
@@ -54,38 +59,42 @@ export function UserAuthContextProvider({ children }) {
 
   function uploadProfilePicture(imageFile) {
     const storage = getStorage();
-    const storageRef = ref(storage, 'profilePictures/' + imageFile.name);
-  
+    const storageRef = ref(storage, "profilePictures/" + imageFile.name);
+
     const uploadTask = uploadBytesResumable(storageRef, imageFile);
-  
-    uploadTask.on('state_changed', 
+
+    uploadTask.on(
+      "state_changed",
       (snapshot) => {
         // Handle the upload progress here
-      }, 
+      },
       (error) => {
         // Handle unsuccessful uploads
         console.error(error);
-      }, 
+      },
       () => {
         // Handle successful uploads on complete
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
-          
-        // Then, update the user's profile in Firebase Authentication
-        updateProfile(auth.currentUser, {
-          photoURL: downloadURL
-        }).then(() => {
-          // The user's profile has been updated.
-      
-          // Update the user state
-          updateUserProfile(auth.currentUser.displayName, downloadURL);
-        }).catch((error) => {
-          // An error occurred
-          console.error(error);
+          console.log("File available at", downloadURL);
+
+          // Then, update the user's profile in Firebase Authentication
+          updateProfile(auth.currentUser, {
+            photoURL: downloadURL,
+          })
+            .then(() => {
+              // The user's profile has been updated.
+
+              // Update the user state
+              updateUserProfile(auth.currentUser.displayName, downloadURL);
+            })
+            .catch((error) => {
+              // An error occurred
+              console.error(error);
+            });
         });
-      });
-    }
-    );}
+      }
+    );
+  }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -112,7 +121,8 @@ export function UserAuthContextProvider({ children }) {
     logIn,
     signUp,
     logOut,
-    googleSignIn,UserProfile,
+    googleSignIn,
+    UserProfile,
     setUser,
     updateUserProfile, // Add this line
     uploadProfilePicture, // Add this line

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './Styles.css';
 import { useUserAuth } from '../../Context/UserAuthContext';
+import logo from "../../Assests/logo.png";
 
 const NavBar = () => {
   const { user, logOut } = useUserAuth();
@@ -9,9 +10,12 @@ const NavBar = () => {
     console.log(user);
   }, [user]);
 
-  return (
+ return (
     <nav>
-      <h1>Text Summariser</h1>
+      <div className="header">
+        <h1>Text Summariser</h1>
+        <img src={logo} alt="Logo" style={{ width: '50px', marginLeft: '10px' }} />
+      </div>
       <ul>
         <li title='Username'>
           {user && (
@@ -24,6 +28,9 @@ const NavBar = () => {
               <span>{user.username || user.name}</span> 
             </>
           )}
+        </li>
+        <li title='History'>
+          <span id='history-text'>History</span>
         </li>
         <li title='Logout'>
           <button onClick={logOut} id='logout-button'>

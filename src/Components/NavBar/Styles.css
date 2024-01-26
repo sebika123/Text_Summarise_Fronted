@@ -25,7 +25,9 @@ nav ul li img {
 
 nav {
     padding: var(--margin-default) 20px;
-    width: 100vw;
+    width: 80vw;
+    margin-top: 12px;
+    border-radius: 50px;
     position: absolute;
     top: 0;
     background-color: white;
@@ -77,6 +79,11 @@ li {
 #logout-button i {
     margin-left: 2px;
     margin-bottom: 2px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 500px) {
