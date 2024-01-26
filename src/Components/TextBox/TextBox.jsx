@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Styles.css';
 import axios from 'axios';
-// import Footer from '../Footer/Footer';
+import Footer from '../Footer/Footer';
 
 const TextBox = () => {
   const [formData, setFormData] = useState('');
   const [summaryData, setSummaryData] = useState({});
   const [inputWordCount, setInputWordCount] = useState(0);
   const [outputWordCount, setOutputWordCount] = useState(0);
-  const [percentage, setPercentage] = useState(30); // Default value is 30
-  const [showOutput, setShowOutput] = useState(false); // Track whether to show output
+  const [percentage, setPercentage] = useState(30); 
+  const [showOutput, setShowOutput] = useState(false); 
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
@@ -27,8 +27,8 @@ const TextBox = () => {
     e.preventDefault();
 
     const data = {
-      rawtext: formData,
-      percentage: percentage, // Use the percentage from state
+      rawtext: formData, 
+      percentage: percentage,
     };
 
     axios
@@ -93,7 +93,7 @@ const TextBox = () => {
           ))}
         </ul>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

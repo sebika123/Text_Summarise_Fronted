@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../Context/UserAuthContext";
-import logo from "./logo.png";
+import logo from "../../Assests/logo.png";
 
 const Register = () => {
   const [Email, setEmail] = useState("");
