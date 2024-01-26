@@ -13,7 +13,7 @@ body {
   padding: 0 10px;
   width: 100%;
   height: 100%;
-  background-image: url('./background.webp');
+  background-image: url('../../Assests/background.webp');
   background-size: cover;
   background-position: center;
   z-index: -1;
