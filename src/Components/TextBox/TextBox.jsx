@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Styles.css';
 import axios from 'axios';
-import { useHistory } from '../../Components/HistoryContext';
+import { useHistory } from '../HistoryContext';
 import { useUserAuth } from "../UserAuthContext"; // Add this import
 
 const TextBox = () => {

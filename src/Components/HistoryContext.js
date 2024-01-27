@@ -41,7 +41,9 @@ export const HistoryProvider = ({ children }) => {
     </HistoryContext.Provider>
   );
 };
-
 export const useHistory = () => {
   return useContext(HistoryContext);
 };
+// export const useHistory = () => {
+//   return useContext(HistoryContext);
+// };

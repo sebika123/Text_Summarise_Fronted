@@ -14,9 +14,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { auth } from  "../firebase";
-// import { auth } from "../firebase";
-import { useHistory } from "../Components/HistoryContext"; 
+import { auth } from "../firebase";
+import { useHistory } from '../Components/HistoryContext';
+
+// import { useHistory } from "./HistoryContext";
 
 const userAuthContext = createContext();
 
@@ -147,4 +148,3 @@ export function UserAuthContextProvider({ children }) {
 export function useUserAuth() {
   return useContext(userAuthContext);
 }
-

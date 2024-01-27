@@ -2,7 +2,7 @@ import React, { useState,} from 'react';
 import './Styles.css';
 import { useUserAuth } from "../UserAuthContext";
 import logo from '../../Assests/logo.png';
-import { useHistory } from '../../Components/HistoryContext';
+import { useHistory } from '../HistoryContext';
 
 
 const NavBar = () => {
@@ -11,9 +11,6 @@ const NavBar = () => {
   const [showHistory, setShowHistory] = useState(false);
 
   const fetchHistory = () => {
-    // Fetch the history data here and update the state
-    // For now, let's use a placeholder data
-    // setHistoryData(["Summary 1", "Summary 2", "Summary 3"]);
     setShowHistory(true);
   };
 

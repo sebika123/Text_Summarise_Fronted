@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../UserAuthContext";
 import logo from "../../Assests/logo.png";
+// import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 const LoginForm = () => {
   const [Email, setEmail] = useState("");
