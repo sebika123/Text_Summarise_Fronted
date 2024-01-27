@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import "./Styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleButton from "react-google-button";
-import { useUserAuth } from "../../Context/UserAuthContext";
+import { useUserAuth } from "../UserAuthContext";
 import logo from "../../Assests/logo.png";
 
 const LoginForm = () => {

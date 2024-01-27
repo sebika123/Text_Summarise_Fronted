@@ -1,6 +1,6 @@
 import React, { useState,} from 'react';
 import './Styles.css';
-import { useUserAuth } from '../../Context/UserAuthContext';
+import { useUserAuth } from "../UserAuthContext";
 import logo from '../../Assests/logo.png';
 import { useHistory } from '../../Components/HistoryContext';
 
