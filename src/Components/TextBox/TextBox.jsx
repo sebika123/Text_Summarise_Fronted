@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './Styles.css';
 import axios from 'axios';
 import { useHistory } from '../../Components/HistoryContext';
-import { useUserAuth } from '../../Context/UserAuthContext'; // Add this import
+import { useUserAuth } from "../UserAuthContext"; // Add this import
 
 const TextBox = () => {
-  const { user, logOut } = useUserAuth();
+  // const { user, logOut } = useUserAuth();
+  const { user} = useUserAuth();
   const { history, addToHistory } = useHistory();
   const [formData, setFormData] = useState('');
   const [summaryData, setSummaryData] = useState({});

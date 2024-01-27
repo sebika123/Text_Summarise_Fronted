@@ -4,7 +4,7 @@ import Register from './Components/Register/Register'
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import TextBox from './Components/TextBox/TextBox';
-import { UserAuthContextProvider } from './Context/UserAuthContext';
+import { UserAuthContextProvider } from './Components/UserAuthContext';
 import ProtectedRoute from './ProtectedRoutes';
 import Home from './Components/Home/Home';
 import Footer from './Components/Footer/Footer';
