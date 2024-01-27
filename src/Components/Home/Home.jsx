@@ -3,7 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import './Styles.css';
 import { Link } from 'react-router-dom';
 import Background from '../Background/Background';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -39,7 +39,7 @@ const Home = () => {
           )}
         </animated.div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

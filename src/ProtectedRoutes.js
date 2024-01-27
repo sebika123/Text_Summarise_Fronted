@@ -6,9 +6,7 @@ import { useUserAuth } from "./Context/UserAuthContext";
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useUserAuth();
-    // const user = false
-    // console.log("Check user in Private: ", user);
-    
+
   if (!user) {
     return <Navigate to="/" />;
   }

@@ -1,13 +1,13 @@
 import React from 'react';
-import './Styles.css'; // Importing a CSS file for styling
+import './Styles.css'; 
 
 const Footer = () => {
-  const year = new Date().getFullYear(); // This will always keep the copyright year current
+  const year = new Date().getFullYear(); 
 
   return (
     <footer className="footer">
       <div className="container">
-        <p className="copyright">&copy; {year} Text Summarizer. All rights reserved.</p>
+        <p className="copyright">&copy; {year} SummarEase. All rights reserved 2024.</p>
         <ul className="footer-info">
           <li>About Us</li>
           <li>Contact Us</li>
