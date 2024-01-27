@@ -1,17 +1,23 @@
-import React, { useState,} from 'react';
+import React, { useState } from 'react';
 import './Styles.css';
 import { useUserAuth } from "../UserAuthContext";
 import logo from '../../Assests/logo.png';
 import { useHistory } from '../HistoryContext';
-
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const { user, logOut } = useUserAuth();
   const { history } = useHistory();
   const [showHistory, setShowHistory] = useState(false);
+  const navigate = useNavigate();
 
   const fetchHistory = () => {
     setShowHistory(true);
+  };
+
+  const handleLogout = async () => {
+    await logOut();
+    navigate('/login');
   };
 
   return (
@@ -42,10 +48,10 @@ const NavBar = () => {
             <span id="history-text">History</span>
           </li>
         )}
-        <li title="Logout">
-          <button onClick={logOut} id="logout-button">
-            <i className="ri-logout-box-r-line"></i>
-          </button>
+       <li title="Logout">
+  <button onClick={handleLogout} id="logout-button">
+    <i className="ri-logout-box-r-line"></i>
+</button>
         </li>
       </ul>
       {showHistory && (

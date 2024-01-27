@@ -13,9 +13,20 @@ export const HistoryProvider = ({ children }) => {
   const addToHistory = (data, userId) => {
     setHistory((prevHistory) => {
       const userHistoryIndex = prevHistory.findIndex((entry) => entry.userId === userId);
-  
+    
       if (userHistoryIndex !== -1) {
-        prevHistory[userHistoryIndex].data.push(data);
+        // Create a new array with the updated history for the user
+        const updatedHistory = prevHistory.map((entry, index) => {
+          if (index === userHistoryIndex) {
+            return {
+              ...entry,
+              data: [...entry.data, data],
+            };
+          }
+          return entry;
+        });
+        localStorage.setItem('history', JSON.stringify(updatedHistory));
+        return updatedHistory;
       } else {
         const updatedHistory = [
           ...prevHistory,
@@ -24,9 +35,6 @@ export const HistoryProvider = ({ children }) => {
         localStorage.setItem('history', JSON.stringify(updatedHistory));
         return updatedHistory;
       }
-  
-      localStorage.setItem('history', JSON.stringify(prevHistory));
-      return prevHistory;
     });
   };
   
