@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA6lV-JC_h3oVKMbHo9XR7vckaRWjuux1s",
+  apiKey: "AIzaSyA6lV-JC_h3oVKMbHo9XR7vckaRWjuux1s",
   authDomain: "text-summarizer-f78de.firebaseapp.com",
   projectId: "text-summarizer-f78de",
   storageBucket: "text-summarizer-f78de.appspot.com",
@@ -11,7 +11,5 @@ const firebaseConfig = {
   measurementId: "G-ZMEY95WS7K"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
-export const auth = getAuth(app);
+export const database = getAuth(app)

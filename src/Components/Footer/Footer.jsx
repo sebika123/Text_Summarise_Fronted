@@ -1,18 +1,3 @@
-
-
-// import React from 'react';
-// import './Styles.css';
-
-// const Footer = () => {
-//   return (
-//     <footer className="footer">
-//       <p>&copy; 2024 Text Summarizer. All rights reserved.</p>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
-
 import React from 'react';
 import './Styles.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
