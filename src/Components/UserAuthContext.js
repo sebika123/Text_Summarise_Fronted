@@ -15,7 +15,6 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from  "../firebase";
-// import { auth } from "../firebase";
 import { useHistory } from "../Components/HistoryContext"; 
 
 const userAuthContext = createContext();
