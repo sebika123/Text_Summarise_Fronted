@@ -1,93 +1,108 @@
-:root {
-    --btn-clr: #007BFF;
-    --border-clr: #ced4da;
-    --default-padding: 15px;
-    --default-margin: 20px;
-    --default-font-size: 18px;
-    --default-border-radius: 6px;
-    --default-transition: all 0.3s ease-in-out;
-    --default-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
+
+  @import 'animate.css';
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+ 
+  
+    
+   
+    background-image: url('image1.jpg'); 
+ 
+  background-color: rgba(48, 125, 254, 0.2) ; /* Or your preferred background color */
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-#login-form, .error-msg {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: var(--default-padding);
-    border-radius: var(--default-border-radius);
-    background-color: white;
-    box-shadow: var(--default-box-shadow);
+#login-form {
+  animation: fadeIn 0.5s ease-in-out;
+  background-color: rgba(48, 125, 254, 0.2) ;
+  border: 1px solid rgba(48, 125, 254, 0.2) ;
+  padding: 30px;
+  width: 400px;
+  box-sizing: border-box;
+  border-radius: 6px; /* Add rounded corners */
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; /* Add a subtle shadow */
+  text-align: center;
+  
+  gap:10px;
 }
 
-h1, p {
-    text-align: center;
-    margin-bottom: var(--default-margin);
-    font-size: var(--default-font-size);
-    font-weight: 500;
-    color: #212529;
+h1 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 input, button {
-    width: 100%;
-    padding: var(--default-padding);
-    margin-bottom: var(--default-margin);
-    border-radius: var(--default-border-radius);
-    border: 1px solid var(--border-clr);
-    font-size: var(--default-font-size);
-    outline: none;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 40px;
+ 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  
 }
 
-button, #google-button {
-    margin-top: 15px;
-    background-color: var(--btn-clr);
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: var(--default-transition);
+input:focus, button:focus {
+  outline: none;
+  border-color: #58a4ff;
+  box-shadow: rgba(48, 125, 254, 0.2) 0px 0px 0px 1px;
 }
 
-button:hover, #google-button:hover {
-    background-color: #0056b3;
+button {
+  background-color: #58a4ff;
+  color: #fff;
+  cursor: pointer;
 }
 
-button:active, #google-button:active {
-    background-color: #004085;
+button:active {
+  transform: scale(0.95);
 }
 
-input::placeholder {
-    color: #6c757d;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid #dee2e6;
-    margin: var(--default-margin) 0;
-}
-.logo-container {
+#google-button-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    margin-top: 20px;
   }
-  
-  .logo-container img {
-    width: 100px;
-  }
-  
-  .logo-container h1 {
-    font-size: 1.5em; 
-    margin: 0;
-  }
+
 .error-msg {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    padding: var(--default-padding);
-    margin-bottom: var(--default-margin);
-    border: 1px solid transparent;
-    border-radius: var(--default-border-radius);
+  animation: shake 0.3s;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.07);
+  padding: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 5px;
 }
+
+.link-container {
+  text-align: center;
+  margin-top: 15px;
+  background-color: rgba(48, 125, 254, 0.2) ;
+  width: 400px;
+  box-sizing: border-box;
+}
+.form-inputs {
+    margin: 20px auto;
+    margin-bottom: 10px; 
+    display: flex; /* Arrange inputs side-by-side */
+    flex-direction: column; /* Stack inputs vertically */
+    gap: 30px; /* Add spacing between inputs */
+  }
+  
+  input {
+   
+    width: 100%; /* Ensure inputs take full width within the column */
+  }

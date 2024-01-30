@@ -1,125 +1,115 @@
+
+
+
 :root {
-    --btn-clr: rgb(58, 143, 255);
-    --border-clr: rgba(100, 100, 100, 0.318);
-    --logout-button-size: 36px;
-    --font-size-default: 16px;
-    --font-size-large: 32px;
-    --margin-default: 10px;
+  --primary-color: rgb(58, 143, 255);
+  --btn-clr: rgb(58, 143, 255);
+  --border-clr: rgba(100, 100, 100, 0.318);
+  --logout-button-size: 36px;
+  --font-size-default: 16px;
+  --font-size-large: 32px;
+  --margin-default: 10px;
+  --navbar-height: 60px; /* Define navbar height for animations */
 }
 
-nav, ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* Animate navbar on scroll */
+nav {
+  animation: slide-in 0.5s ease-in-out;
 }
 
-nav ul li span {
-    margin-left: 10px;
-    align-items: center;
-}
-
-nav ul li img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+@keyframes slide-in {
+  from { top: -100%; }
+  to { top: 0; }
 }
 
 nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 16px; 
-    width: 80vw;
-    height : 6vw;
-    margin-top: 25px; /* Adjusted margin-top */
-    border-radius: 35px; /* Adjusted border-radius */
-    position: absolute;
-    top: 0;
-    background-color: white;
-    box-shadow: rgba(67, 71, 85, 0.192) 0px 0px 0.25em, rgba(90, 124, 188, 0.027) 0px 0.25em 1em;
-    flex-wrap: wrap;
+  padding: var(--margin-default) 20px;
+  width: 100vw;
+  left: 0;
+  position: fixed;
+  top: 0;
+  background-color:transparent;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15); 
+  flex-wrap: wrap;
+  height: var(--navbar-height); 
+  transition: background-color 0.3s ease-in-out;
+}
+nav {
+    background-image: none;
+  }
+  
+
+
+  
+nav {
+    animation: color-shift 5s ease-in-out infinite;
+  }
+  
+  @keyframes color-shift {
+    0% { background-color: rgba(238, 93, 185, 0.9); }
+    50% { background-color: rgba(248, 103, 195, 0.9); }
+    100% { background-color: rgba(238, 93, 185, 0.9); }
+  }
+
+
+nav, ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-h1, li {
-    font-size: var(--font-size-default);
-    display: flex; /* Add this line */
-    align-items: center; /* Add this line */
+nav ul li {
+  margin-left: auto; /* Push links to the right */
 }
 
-h1 {
-    font-size: var(--font-size-large);
+nav ul li a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 10px 15px; /* Add padding for better touch targets */
 }
 
-li {
-    font-weight: 500;
-    list-style: none;
+nav ul li a:hover,
+nav ul li a[href="/about"]:hover {
+  color: rgb(20, 17, 17); /* Ensure readability on hover */
+  background-color: rgba(125, 161, 235, 0.8); /* Darker blue with more opacity */
+  margin: 1px;
+  border-radius: 5px; /* Smoother corners */
 }
 
-#logout:hover {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.196);
-    padding: auto;
-}
-.history-popup {
-    position: fixed;
-    top: 50%;
-    right: 50px;
-    transform: translateY(-50%);
-    width:200px; /* Adjust as needed */
-    background-color: #fff; /* Adjust as needed */
-    padding: 20px; /* Adjust as needed */
-    border-radius: 10px; /* Adjust as needed */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adjust as needed */
-    overflow-y: auto; /* Add a scrollbar if the content is too long */
-}
-.history-popup ul {
-    list-style-type: none; /* Remove default bullet points */
-    padding: 0; /* Remove default padding */
+/* Smoother transition for active link */
+nav ul li a.active {
+  background-color: rgba(125, 161, 235, 0.1);
+  transition: background-color 0.2s ease-out;
 }
 
-.history-popup ul li {
-    display: block; /* Display the list items in a vertical list */
-    padding: 10px 0; /* Add some vertical padding between list items */
-    border-bottom: 1px solid #ddd; /* Add a bottom border to each list item */
+/* Animate link expansion on hover */
+nav ul li a:hover {
+  transform: scale(1.05); /* Subtle zoom-in effect */
 }
 
-.history-popup ul li:last-child {
-    border-bottom: none; /* Remove the bottom border from the last list item */
-}
-#logout-button {
-    background-color: rgb(255, 34, 0);
-    width: var(--logout-button-size);
-    height: var(--logout-button-size);
-    text-align: center;
-    padding-bottom: var(--margin-default);
-    border: transparent;
-    border-radius: 50%;
-    transition: all ease 0.4s;
+/* Add a slight bounce effect for branding */
+nav .navbar-brand h1 {
+  animation: bounce-logo 0.4s ease-in-out;
 }
 
-#logout-button:active {
-    scale: 0.85;
+@keyframes bounce-logo {
+  from { transform: translateY(5px); }
+  to { transform: translateY(0); }
 }
 
-#logout-button:hover {
-    background-color: rgba(255, 0, 0, 0.361);
+
+nav ul li a[href="/about"] {
+    font-size: 18px;
+    color:black;
+}
+nav ul li a[href="/textbox"] {
+    font-size: 18px;
+    color:black;
 }
 
-#logout-button i {
-    margin-left: 2px;
-    margin-bottom: 2px;
-}
-
-.header {
-    display: flex;
-    align-items: center;
-}
-
-@media screen and (max-width: 500px) {
-    h1, ul {
-        margin: 0 auto;
-    }
+#about {
+    font-size: 20px; 
 }

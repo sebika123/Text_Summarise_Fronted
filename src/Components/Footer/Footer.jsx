@@ -1,19 +1,39 @@
+
+
+// import React from 'react';
+// import './Styles.css';
+
+// const Footer = () => {
+//   return (
+//     <footer className="footer">
+//       <p>&copy; 2024 Text Summarizer. All rights reserved.</p>
+//     </footer>
+//   );
+// };
+
+// export default Footer;
+
 import React from 'react';
-import './Styles.css'; 
+import './Styles.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
+library.add(fab, fas);
 const Footer = () => {
-  const year = new Date().getFullYear(); 
-
   return (
     <footer className="footer">
-      <div className="container">
-        <p className="copyright">&copy; {year} SummarEase. All rights reserved 2024.</p>
-        <ul className="footer-info">
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Privacy Policy</li>
-          <li>Terms of Service</li>
-        </ul>
+      <p>&copy; 2024 Text Summarizer. All rights reserved.</p>
+      <div className="contact-details">
+        <a href="mailto:contact@textsummarizer.com">
+          <i className="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.facebook.com/textsummarizer">
+          <i className="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.twitter.com/textsummarizer">
+          <i className="fab fa-twitter"></i>
+        </a>
       </div>
     </footer>
   );

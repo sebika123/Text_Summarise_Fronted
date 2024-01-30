@@ -1,73 +1,80 @@
-import React, { useState,} from 'react';
-import './Styles.css';
-import { useUserAuth } from "../UserAuthContext";
-import logo from '../../Assests/logo.png';
-import { useHistory } from '../../Components/HistoryContext';
 
+
+
+
+
+import React, { useEffect } from 'react';
+import './Styles.css';
+import { useUserAuth } from '../../Context/UserAuthContext';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const { user, logOut } = useUserAuth();
-  const { history } = useHistory();
-  const [showHistory, setShowHistory] = useState(false);
 
-  const fetchHistory = () => {
-    // Fetch the history data here and update the state
-    // For now, let's use a placeholder data
-    // setHistoryData(["Summary 1", "Summary 2", "Summary 3"]);
-    setShowHistory(true);
-  };
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   return (
-    <nav>
-      <div className="header">
-        <h1>Text Summariser</h1>
-        <img
-          src={logo}
-          alt="Logo"
-          style={{ width: "50px", marginLeft: "10px" }}
-        />
-      </div>
-      <ul>
-        <li title="Username">
-          {user && (
-            <>
-              <img
-                src={user.profilePicture || "default-profile-picture.png"} // Use a default image if user.profilePicture is not set
-                alt="Profile"
-                style={{ width: "30px", height: "30px", borderRadius: "50%" }}
-              />
-              <span>{user.username || user.name}</span>
-            </>
-          )}
-        </li>
-        {user && (
-          <li title="History" onClick={fetchHistory}>
-            <span id="history-text">History</span>
-          </li>
-        )}
-        <li title="Logout">
-          <button onClick={logOut} id="logout-button">
-            <i className="ri-logout-box-r-line"></i>
-          </button>
-        </li>
-      </ul>
-      {showHistory && (
-        <div className="history-popup">
-          <h2>History</h2>
-          <ul>
-            {history.map((item, index) => (
-              <li key={index}>
-                <strong>Input:</strong> {item.input}
-                <br />
-                <strong>Output:</strong> {item.output}
-              </li>
-            ))}
+    <nav className="navbar navbar-expand-lg bg-body-tertiary"style={{ position: 'fixed', top: 0, width: '100%',  zIndex: 1000, backgroundColor: 'rgba(232, 103, 184, 0.9)'}}>
+   
+      <div className="container-fluid">
+        <Link to="/home" className="navbar-brand" title="Home">
+          <h1>Text Summariser</h1>
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+              <Link to="/textbox" className="nav-link" title="Summary">
+               Summary
+              </Link>
+          
+            </li>
+          
+            <li className="nav-item">
+              <Link to="/about" className="nav-link" title="About Us">
+                About Us
+              </Link>
+          
+            </li>
+           
+           
           </ul>
-          <button onClick={() => setShowHistory(false)}>Close</button>
+
+
+          <div className="d-flex align-items-center">
+            {user && (
+              <>
+                <img
+                  src={user.profilePicture}
+                  alt="Profile"
+                  style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }}
+                />
+                <span>{user.name}</span>
+              </>
+            )}
+            {user && (
+              <button onClick={logOut} className="btn btn-outline-danger mx-2" title="Logout">
+                Logout
+              </button>
+            )}
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
+
 
 export default NavBar;

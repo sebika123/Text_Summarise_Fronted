@@ -4,11 +4,13 @@ import Register from './Components/Register/Register'
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import TextBox from './Components/TextBox/TextBox';
-import { UserAuthContextProvider } from './Components/UserAuthContext';
+import { UserAuthContextProvider } from './Context/UserAuthContext';
 import ProtectedRoute from './ProtectedRoutes';
 import Home from './Components/Home/Home';
-import Footer from './Components/Footer/Footer';
+import AboutUs from './Components/AboutUs/AboutUs'; // Import your AboutUs component
+// import Blog from './Components/Blog/Blog';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <UserAuthContextProvider>
           <Routes>
             <Route path="/" element={<LoginForm />} />
+            <Route path="/about" element={<AboutUs /> } />
+             {/* <Route path="/blog" element={<Blog />} /> */}
             <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<Register />} />
             <Route
@@ -25,7 +29,6 @@ function App() {
                 <ProtectedRoute>
                   <NavBar />
                   <Home />
-                  <Footer/>
                 </ProtectedRoute>
               }
             />
@@ -33,6 +36,7 @@ function App() {
               path="/textbox"
               element={
                 <ProtectedRoute>
+                
                   <NavBar />
                   <TextBox />
                 </ProtectedRoute>
