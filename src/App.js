@@ -9,7 +9,7 @@ import ProtectedRoute from './ProtectedRoutes';
 import Home from './Components/Home/Home';
 import AboutUs from './Components/AboutUs/AboutUs'; // Import your AboutUs component
 // import Blog from './Components/Blog/Blog';
-
+import ForgotPassword from './Components/Login/ForgotPassword';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
             <Route path="/about" element={<AboutUs /> } />
              {/* <Route path="/blog" element={<Blog />} /> */}
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/register" element={<Register />} />
             <Route
               path="/home"

@@ -1,26 +1,37 @@
-
-
-
-
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Styles.css';
 import { useUserAuth } from '../../Context/UserAuthContext';
-import { Link } from 'react-router-dom';
+import logo from '../../Assests/logo.png';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const { user, logOut } = useUserAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [showHistory, setShowHistory] = useState(false);
+
+  const handleLogout = async () => {
+    await logOut();
+    navigate('/login');
+  };
 
   useEffect(() => {
     console.log(user);
   }, [user]);
 
+  // Example history usage for conditionally rendering based on location
+  const isHomePage = location.pathname === '/home';
+
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary"style={{ position: 'fixed', top: 0, width: '100%',  zIndex: 1000, backgroundColor: 'rgba(232, 103, 184, 0.9)'}}>
-   
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1000, backgroundColor: 'rgba(232, 103, 184, 0.9)' }}>
       <div className="container-fluid">
         <Link to="/home" className="navbar-brand" title="Home">
           <h1>Text Summariser</h1>
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ width: "50px", marginLeft: "10px" }}
+          />
         </Link>
         <button
           className="navbar-toggler"
@@ -35,24 +46,17 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item">
+            <li className="nav-item">
               <Link to="/textbox" className="nav-link" title="Summary">
-               Summary
+                Summary
               </Link>
-          
             </li>
-          
             <li className="nav-item">
               <Link to="/about" className="nav-link" title="About Us">
                 About Us
               </Link>
-          
             </li>
-           
-           
           </ul>
-
-
           <div className="d-flex align-items-center">
             {user && (
               <>
@@ -69,12 +73,23 @@ const NavBar = () => {
                 Logout
               </button>
             )}
+            {isHomePage && (
+              <button onClick={() => setShowHistory(true)} className="btn btn-outline-danger mx-2" title="Show History">
+                Show History
+              </button>
+            )}
+            {showHistory && (
+              <div className="history-popup">
+                <h2>History</h2>
+                {/* History content */}
+                <button onClick={() => setShowHistory(false)}>Close</button>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </nav>
   );
 };
-
 
 export default NavBar;
