@@ -1,51 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import './Styles.css';
-import { useUserAuth } from '../../Context/UserAuthContext';
-import logo from '../../Assests/logo.png';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "./Styles.css";
+import { useUserAuth } from "../../Context/UserAuthContext";
+import { useHistory } from "../HistoryContext";
+import logo from "../../Assests/logo.png";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const { user, logOut } = useUserAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [showHistory, setShowHistory] = useState(false);
+  const { history, addToHistory } = useHistory(); // Use the useHistory hook
 
   const handleLogout = async () => {
     await logOut();
-    navigate('/login');
+    navigate("/login");
   };
 
   useEffect(() => {
     console.log(user);
   }, [user]);
 
-  // Example history usage for conditionally rendering based on location
-  const isHomePage = location.pathname === '/home';
+  const isHomePage = location.pathname === "/home";
+
+  const handleShowHistory = () => {
+    setShowHistory(true);
+    // You can use addToHistory here if needed
+  };
+
+  const handleSummarize = (summaryData) => {
+    if (user) {
+      addToHistory(summaryData, user.userId); // Assuming user has a unique identifier (userId)
+    }
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', width: '100%', zIndex: 1000, backgroundColor: 'rgba(232, 103, 184, 0.9)' }}>
-      <div className="container" >
-        {/* <Link to="/home" className="navbar-brand" title="Home">
-          <h1>Text Summariser</h1>
-          <img
-            src={logo}
-            alt="Logo"
-            style={{ width: "20px", marginLeft: "10px" }}
-          />
-        </Link> */
-        }
-        
+    <nav
+      className="navbar navbar-expand-lg bg-body-tertiary"
+      style={{
+        position: "fixed",
+        width: "100%",
+        zIndex: 1000,
+        backgroundColor: "rgba(232, 103, 184, 0.9)",
+      }}
+    >
+      <div className="container">
         <Link to="/home" className="navbar-brand" title="Home">
-  <div className="navbar-brand-wrapper"> {/* Added wrapper for flexbox */}
-  <img
-      src={logo}
-      alt="Logo"
-      style={{ width: "20px", marginLeft: "-70px"  }}
-    />
-    <h1>Text Summariser</h1>
-   
-  </div>
-</Link>
+          <div className="navbar-brand-wrapper">
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ width: "20px", marginLeft: "-70px" }}
+            />
+            <h1>Text Summariser</h1>
+          </div>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -77,25 +86,48 @@ const NavBar = () => {
                 <img
                   src={user.profilePicture}
                   alt="Profile"
-                  style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }}
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    borderRadius: "50%",
+                    marginRight: "10px",
+                  }}
                 />
                 <span>{user.name}</span>
               </>
             )}
             {user && (
-              <button onClick={logOut} className="btn btn-outline-danger mx-2" title="Logout">
+              <button
+                onClick={handleLogout}
+                className="btn btn-outline-danger mx-2"
+                title="Logout"
+              >
                 Logout
               </button>
             )}
             {isHomePage && (
-              <button onClick={() => setShowHistory(true)} className="btn btn-outline-danger mx-2" title="Show History">
+              <button
+                onClick={handleShowHistory}
+                className="btn btn-outline-danger mx-2"
+                title="Show History"
+              >
                 Show History
               </button>
             )}
+
             {showHistory && (
               <div className="history-popup">
                 <h2>History</h2>
-                {/* History content */}
+                {history.map((entry, index) => (
+                  <div key={index}>
+                    <p>User ID: {entry.userId}</p>
+                    <ul>
+                      {entry.data.map((item, itemIndex) => (
+                        <li key={itemIndex}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
                 <button onClick={() => setShowHistory(false)}>Close</button>
               </div>
             )}
