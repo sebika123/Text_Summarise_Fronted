@@ -10,7 +10,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [showHistory, setShowHistory] = useState(false);
-  const { history, addToHistory } = useHistory(); // Use the useHistory hook
+  const { history, addToHistory } = useHistory();
 
   const handleLogout = async () => {
     await logOut();
@@ -21,16 +21,13 @@ const NavBar = () => {
     console.log(user);
   }, [user]);
 
-  const isHomePage = location.pathname === "/home";
-
   const handleShowHistory = () => {
     setShowHistory(true);
-    // You can use addToHistory here if needed
   };
 
   const handleSummarize = (summaryData) => {
     if (user) {
-      addToHistory(summaryData, user.userId); // Assuming user has a unique identifier (userId)
+      addToHistory(summaryData, user.userId);
     }
   };
 
@@ -105,15 +102,13 @@ const NavBar = () => {
                 Logout
               </button>
             )}
-            {isHomePage && (
-              <button
-                onClick={handleShowHistory}
-                className="btn btn-outline-danger mx-2"
-                title="Show History"
-              >
-                Show History
-              </button>
-            )}
+            <button
+              onClick={handleShowHistory}
+              className="btn btn-outline-danger mx-2"
+              title="Show History"
+            >
+              Show History
+            </button>
 
             {showHistory && (
               <div className="history-popup">
@@ -121,11 +116,15 @@ const NavBar = () => {
                 {history.map((entry, index) => (
                   <div key={index}>
                     <p>User ID: {entry.userId}</p>
-                    <ul>
-                      {entry.data.map((item, itemIndex) => (
-                        <li key={itemIndex}>{item}</li>
-                      ))}
-                    </ul>
+                    {entry.data && entry.data.length > 0 ? (
+                      <ul>
+                        {entry.data.map((item, itemIndex) => (
+                          <li key={itemIndex}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>No history for this user.</p>
+                    )}
                   </div>
                 ))}
                 <button onClick={() => setShowHistory(false)}>Close</button>

@@ -6,20 +6,18 @@ import { saveAs } from "file-saver";
 import jsPDF from "jspdf";
 
 import Tracker from "./Tracker";
+import { useHistory } from "../HistoryContext";
 
 const TextBox = () => {
   const [summaryData, setSummaryData] = useState({});
   const [formData, setFormData] = useState("");
-
   const [inputWordCount, setInputWordCount] = useState(0);
   const [outputWordCount, setOutputWordCount] = useState(0);
-  const [percentage, setPercentage] = useState(30); // Default value is 30
-  const [showOutput, setShowOutput] = useState(false); // Track whether to show output
+  const [percentage, setPercentage] = useState(30);
+  const [showOutput, setShowOutput] = useState(false);
   const [downloadFileName, setDownloadFileName] = useState("");
 
-  const [numSummaries, setNumSummaries] = useState(0);
-  const [numTxtDownloads, setNumTxtDownloads] = useState(0);
-  const [numPdfDownloads, setNumPdfDownloads] = useState(0);
+  const { addToHistory } = useHistory();
 
   const promptForFileName = () => {
     const prompt = window.prompt("Enter a file name:");
@@ -34,18 +32,15 @@ const TextBox = () => {
       const textFile = new Blob([summaryData.summary], { type: "text/plain" });
       const fileName = `${downloadFileName}.txt`;
       saveAs(textFile, fileName);
-      setNumTxtDownloads(numTxtDownloads + 1);
-      // Tracker.incrementTxtDownloads(); // Call the increment function after download
+      addToHistory(summaryData.summary); // Add summary to history
     }
   };
 
   const downloadPDFSummary = () => {
-    promptForFileName(); // Prompt for filename before creating the PDF
-
+    promptForFileName();
     if (downloadFileName) {
-      // Proceed only if a filename is provided
       const doc = new jsPDF();
-      doc.setFontSize(12); // Set font size
+      doc.setFontSize(12);
 
       const textLines = doc.splitTextToSize(
         summaryData.summary,
@@ -56,36 +51,28 @@ const TextBox = () => {
         doc.text(10, 10 + index * 12, line);
       });
 
-      doc.save(`${downloadFileName}.pdf`); // Use the user-provided filename
-      // Tracker.incrementPdfDownloads();
-      setNumPdfDownloads(numPdfDownloads + 1);
+      doc.save(`${downloadFileName}.pdf`);
+      addToHistory(summaryData.summary); // Add summary to history
     }
   };
 
-  const handleNumSummariesChange = (num) => {
-    setNumSummaries(num);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = {
-      rawtext: formData,
-      percentage: percentage,
-    };
-
-    axios
-      .post("http://127.0.0.1:5000/analyze", data)
-      .then((response) => {
-        console.log("Data sent successfully:", response.data);
-        setSummaryData(response.data.summary);
-        setOutputWordCount(response.data.summary.split(" ").length);
-        setShowOutput(true); // Set showOutput to true after getting the response
-        Tracker.incrementNumSummaries(); // Call the increment function from Tracker
-      })
-      .catch((error) => {
-        console.error("Error sending data:", error);
+    try {
+      const response = await axios.post("http://127.0.0.1:5000/analyze", {
+        rawtext: formData,
+        percentage: percentage,
       });
+
+      setSummaryData(response.data.summary);
+      setOutputWordCount(response.data.summary.split(" ").length);
+      setShowOutput(true);
+      addToHistory(response.data.summary); // Add summary to history
+    } catch (error) {
+      console.error("Error sending data:", error);
+    }
+
     console.log("DATA :", formData);
   };
 
@@ -96,6 +83,18 @@ const TextBox = () => {
 
   const handlePercentageChange = (e) => {
     setPercentage(e.target.value);
+  };
+
+  const handleNumSummariesChange = (value) => {
+    console.log("Number of summaries changed:", value);
+  };
+
+  const handleNumTxtDownloadsChange = (value) => {
+    console.log("Number of text downloads changed:", value);
+  };
+
+  const handleNumPdfDownloadsChange = (value) => {
+    console.log("Number of PDF downloads changed:", value);
   };
 
   return (
@@ -162,8 +161,8 @@ const TextBox = () => {
       </div>
       <Tracker
         onNumSummariesChange={handleNumSummariesChange}
-        onNumTxtDownloadsChange={setNumTxtDownloads}
-        onNumPdfDownloadsChange={setNumPdfDownloads}
+        onNumTxtDownloadsChange={handleNumTxtDownloadsChange}
+        onNumPdfDownloadsChange={handleNumPdfDownloadsChange}
       />
       <Footer />
     </div>
