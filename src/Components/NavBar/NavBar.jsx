@@ -23,16 +23,30 @@ const NavBar = () => {
   const isHomePage = location.pathname === '/home';
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1000, backgroundColor: 'rgba(232, 103, 184, 0.9)' }}>
-      <div className="container-fluid">
-        <Link to="/home" className="navbar-brand" title="Home">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', width: '100%', zIndex: 1000, backgroundColor: 'rgba(232, 103, 184, 0.9)' }}>
+      <div className="container" >
+        {/* <Link to="/home" className="navbar-brand" title="Home">
           <h1>Text Summariser</h1>
           <img
             src={logo}
             alt="Logo"
-            style={{ width: "50px", marginLeft: "10px" }}
+            style={{ width: "20px", marginLeft: "10px" }}
           />
-        </Link>
+        </Link> */
+        }
+        
+        <Link to="/home" className="navbar-brand" title="Home">
+  <div className="navbar-brand-wrapper"> {/* Added wrapper for flexbox */}
+  <img
+      src={logo}
+      alt="Logo"
+      style={{ width: "20px", marginLeft: "-70px"  }}
+    />
+    <h1>Text Summariser</h1>
+   
+  </div>
+</Link>
+
         <button
           className="navbar-toggler"
           type="button"

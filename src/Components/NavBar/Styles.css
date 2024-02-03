@@ -15,7 +15,21 @@
 /* Animate navbar on scroll */
 nav {
   animation: slide-in 0.5s ease-in-out;
+
+   
+  
 }
+
+
+.navbar-brand-wrapper {
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Vertically align logo and h1 */
+}
+
+.navbar-brand-wrapper img {
+  margin-left: 30px; /* Optional: Add space between logo and h1 */
+}
+
 
 @keyframes slide-in {
   from { top: -100%; }
@@ -25,7 +39,8 @@ nav {
 nav {
   padding: var(--margin-default) 20px;
   width: 100vw;
-  left: 0;
+  border-radius: 10px; 
+ 
   position: fixed;
   top: 0;
   background-color:transparent;
@@ -33,6 +48,7 @@ nav {
   flex-wrap: wrap;
   height: var(--navbar-height); 
   transition: background-color 0.3s ease-in-out;
+  
 }
 nav {
     background-image: none;
@@ -113,3 +129,4 @@ nav ul li a[href="/textbox"] {
 #about {
     font-size: 20px; 
 }
+

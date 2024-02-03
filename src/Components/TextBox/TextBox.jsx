@@ -17,6 +17,14 @@ const TextBox = () => {
   const [percentage, setPercentage] = useState(30); // Default value is 30
   const [showOutput, setShowOutput] = useState(false); // Track whether to show output
   const [downloadFileName, setDownloadFileName] = useState('');
+
+
+  const [numSummaries, setNumSummaries] = useState(0);
+  const [numTxtDownloads, setNumTxtDownloads] = useState(0);
+  const [numPdfDownloads, setNumPdfDownloads] = useState(0);
+
+
+
   
   const promptForFileName = () => {
     const prompt = window.prompt('Enter a file name:');
@@ -31,7 +39,8 @@ const TextBox = () => {
       const textFile = new Blob([summaryData.summary], { type: 'text/plain' });
       const fileName = `${downloadFileName}.txt`;
       saveAs(textFile, fileName);
-      Tracker.incrementTxtDownloads(); // Call the increment function after download
+      setNumTxtDownloads(numTxtDownloads + 1);
+      // Tracker.incrementTxtDownloads(); // Call the increment function after download
     }
   };
 
@@ -51,10 +60,17 @@ const TextBox = () => {
       });
   
       doc.save(`${downloadFileName}.pdf`); // Use the user-provided filename
-      Tracker.incrementPdfDownloads();
+      // Tracker.incrementPdfDownloads();
+      setNumPdfDownloads(numPdfDownloads + 1);
     }
     
   };
+
+  const handleNumSummariesChange = (num) => { //track
+    setNumSummaries(num);
+  };
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -140,7 +156,13 @@ const TextBox = () => {
           
         )}
       </div>
-      <Tracker />
+      {/* <Tracker /> */}
+
+      <Tracker
+        onNumSummariesChange={handleNumSummariesChange}
+        onNumTxtDownloadsChange={setNumTxtDownloads}
+        onNumPdfDownloadsChange={setNumPdfDownloads}
+      />
       <Footer />
     </div>
   );
