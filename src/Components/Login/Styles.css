@@ -106,3 +106,28 @@ button:active {
    
     width: 100%; /* Ensure inputs take full width within the column */
   }
+  #txt-area {
+  width: 100%; /* Take full width of parent container */
+}
+
+#out-box {
+  flex: 1; /* Expand to fill available space */
+  display: flex;
+  flex-direction: column;
+  /* ... other styles ... */
+  animation: slideInFromBottom 0.5s ease-in-out; /* Apply animation */
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+

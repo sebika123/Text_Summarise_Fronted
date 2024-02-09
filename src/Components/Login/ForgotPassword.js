@@ -21,7 +21,8 @@ function ForgotPassword(){
         <div className="App">
             <h1>Forgot Password</h1>
             <form onSubmit={(e)=>handleSubmit(e)}>
-                <input name="email" /><br/><br/>
+              
+                <input name="email" placeholder='Enter Your Email' /><br/><br/>
                 <button>Reset</button>
             </form>
         </div>

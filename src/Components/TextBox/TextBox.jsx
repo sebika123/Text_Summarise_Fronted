@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 
-import Tracker from './Tracker'; 
+
 
 
 const TextBox = () => {
@@ -19,9 +19,7 @@ const TextBox = () => {
   const [downloadFileName, setDownloadFileName] = useState('');
 
 
-  const [numSummaries, setNumSummaries] = useState(0);
-  const [numTxtDownloads, setNumTxtDownloads] = useState(0);
-  const [numPdfDownloads, setNumPdfDownloads] = useState(0);
+ 
 
 
 
@@ -39,19 +37,19 @@ const TextBox = () => {
       const textFile = new Blob([summaryData.summary], { type: 'text/plain' });
       const fileName = `${downloadFileName}.txt`;
       saveAs(textFile, fileName);
-      setNumTxtDownloads(numTxtDownloads + 1);
-      // Tracker.incrementTxtDownloads(); // Call the increment function after download
+      
+     
     }
   };
 
   
   
   const downloadPDFSummary = () => {
-    promptForFileName(); // Prompt for filename before creating the PDF
+    promptForFileName(); 
   
-    if (downloadFileName) { // Proceed only if a filename is provided
+    if (downloadFileName) { 
       const doc = new jsPDF();
-      doc.setFontSize(12); // Set font size
+      doc.setFontSize(12); 
   
       const textLines = doc.splitTextToSize(summaryData.summary, doc.internal.pageSize.width - 20);
   
@@ -59,16 +57,14 @@ const TextBox = () => {
         doc.text(10, 10 + index * 12, line);
       });
   
-      doc.save(`${downloadFileName}.pdf`); // Use the user-provided filename
-      // Tracker.incrementPdfDownloads();
-      setNumPdfDownloads(numPdfDownloads + 1);
+      doc.save(`${downloadFileName}.pdf`); 
+      
+      
     }
     
   };
 
-  const handleNumSummariesChange = (num) => { //track
-    setNumSummaries(num);
-  };
+  
 
 
 
@@ -89,8 +85,10 @@ const TextBox = () => {
         console.log('Data sent successfully:', response.data);
         setSummaryData(response.data);
         setOutputWordCount(response.data.summary.split(' ').length);
-        setShowOutput(true); // Set showOutput to true after getting the response
-        Tracker.incrementNumSummaries(); // Call the increment function from Tracker
+        setShowOutput(true); 
+        
+        
+        document.getElementById('out-box').classList.add('slideInFromBottom');//animation new
       })
       .catch((error) => {
         console.error('Error sending data:', error);
@@ -116,11 +114,21 @@ const TextBox = () => {
     <div id="parent">
       <div id="txt-box">
         <form id="inp-box" onSubmit={handleSubmit}>
-          <div >
-            <label htmlFor="">Enter Your Text Here</label>
-          </div>
+          {/* <div >
+            <label htmlFor="">Enter Your Text Or Link Here</label>
+          </div> */}
+
+<div class="input-container">
+<label for="input-text-or-link" >Enter Your Text Or Link Here</label>
+ 
+</div>
           <textarea cols="30" rows="10" id="txt-area" onChange={handleChange}></textarea>
-          <div style={{  marginBottom: '10px' }}>Word Count: {inputWordCount}</div>
+          {/* <div style={{  marginBottom: '10px' }}>Word Count: {inputWordCount}</div> */}
+
+
+          <div id="wordcount-div">
+  <button id="wordcount-button">Word Count: <span id="wordcount-value">{inputWordCount}</span></button>
+</div>
           <div style={{  marginBottom: '10px'  }}>
             <label htmlFor="">Enter Final Percentage you want</label>
           </div>
@@ -132,14 +140,24 @@ const TextBox = () => {
         </form>
         {showOutput && (
           <div id="out-box">
-            <div >
+            {/* <div >
+
               <label htmlFor="output-area">Output</label>
-            </div>
+            </div> */}
+
+<div class="output-container">
+<label for="input-text-or-link" >Output</label>
+ 
+</div>
             <div id="output-area">
               <div id="content">{summaryData.summary}</div>
               
             </div>
-            <div >Word Count: {outputWordCount}</div>
+
+            <div id="wordcount-div">
+  <button id="wordcount-button">Word Count: <span id="wordcount-value">{outputWordCount}</span></button>
+</div>
+            {/* <div >Word Count: {outputWordCount}</div> */}
 
             <div id="download-buttons">
 
@@ -158,11 +176,7 @@ const TextBox = () => {
       </div>
       {/* <Tracker /> */}
 
-      <Tracker
-        onNumSummariesChange={handleNumSummariesChange}
-        onNumTxtDownloadsChange={setNumTxtDownloads}
-        onNumPdfDownloadsChange={setNumPdfDownloads}
-      />
+     
       <Footer />
     </div>
   );

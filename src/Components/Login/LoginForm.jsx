@@ -75,7 +75,8 @@ const LoginForm = () => {
         <Link to="/forgot-password" className="forgot-password-option">
           Forgot Password?
         </Link>
-        <div id="google-button-container">
+        <div id="google-button-container" >
+        
           <GoogleButton onClick={handleGoogleSignIn} />
         </div>
       </form>
