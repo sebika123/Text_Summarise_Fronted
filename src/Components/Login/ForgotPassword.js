@@ -19,7 +19,7 @@ function ForgotPassword(){
     }
     return(
         <div className="App">
-            <h1>Forgot Password</h1>
+            <h1>Enter your email address</h1>
             <form onSubmit={(e)=>handleSubmit(e)}>
               
                 <input name="email" placeholder='Enter Your Email' /><br/><br/>

@@ -15,6 +15,9 @@ export const HistoryProvider = ({ children }) => {
       const userHistoryIndex = prevHistory.findIndex((entry) => entry.userId === userId);
   
       if (userHistoryIndex !== -1) {
+        if (!prevHistory[userHistoryIndex].data) {
+          prevHistory[userHistoryIndex].data = [];
+        }
         prevHistory[userHistoryIndex].data.push(data);
       } else {
         const updatedHistory = [
