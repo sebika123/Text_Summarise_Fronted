@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import TextBox from './Components/TextBox/TextBox';
 import { UserAuthContextProvider } from './Context/UserAuthContext';
-import { HistoryProvider } from './Components/HistoryContext'; // Import HistoryProvider
+import { HistoryProvider } from './Components/HistoryContext'; // Corrected import path
 import ProtectedRoute from './ProtectedRoutes';
 import Home from './Components/Home/Home';
 import AboutUs from './Components/AboutUs/AboutUs';
