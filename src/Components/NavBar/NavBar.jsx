@@ -11,24 +11,19 @@ const NavBar = () => {
   const location = useLocation();
   const [showHistory, setShowHistory] = useState(false);
   const { history, addToHistory } = useHistory();
+  const [selectedHistory, setSelectedHistory] = useState(null);
 
   const handleLogout = async () => {
     await logOut();
     navigate("/login");
   };
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   const handleShowHistory = () => {
-    setShowHistory(true);
+    setShowHistory(!showHistory);
   };
 
-  const handleSummarize = (summaryData) => {
-    if (user) {
-      addToHistory(summaryData, user.userId);
-    }
+  const handlePreviewClick = (index) => {
+    setSelectedHistory(index);
   };
 
   return (
@@ -111,23 +106,24 @@ const NavBar = () => {
             </button>
 
             {showHistory && (
-              <div className="history-popup">
-                <h2>History</h2>
-                {history.map((entry, index) => (
-                  <div key={index}>
-                    <p>User ID: {entry.userId}</p>
-                    {entry.data && entry.data.length > 0 ? (
-                      <ul>
-                        {entry.data.map((item, itemIndex) => (
-                          <li key={itemIndex}>{item}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p>No history for this user.</p>
-                    )}
-                  </div>
-                ))}
-                <button onClick={() => setShowHistory(false)}>Close</button>
+              <div className="history-sidebar">
+                <div className="history-header">
+                  <h2>History</h2>
+                  <button onClick={() => setShowHistory(false)}>Close</button>
+                </div>
+                <div className="history-list">
+                  {history.map((entry, index) => (
+                    <div
+                      key={index}
+                      className={`history-item ${
+                        index === selectedHistory ? "selected" : ""
+                      }`}
+                      onClick={() => handlePreviewClick(index)}
+                    >
+                      <p>{entry.data && entry.data.length > 0 ? entry.data[0] : "No data"}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
