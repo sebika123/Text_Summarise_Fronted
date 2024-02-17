@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 .input-container, .output-container {
   display: flex;
   flex-direction: column;
@@ -65,17 +67,16 @@ label {
 
 
 
+>>>>>>> 6431780bc39a91ac718e1916d32d1cd0cba3d801
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
 
-  
- 
-  background-image: url('download.jpg'); 
+  background-image: url("download.jpg");
   background-size: cover;
   background-position: center;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 #parent {
@@ -85,14 +86,14 @@ body {
   justify-content: space-between;
   min-height: 100vh;
   padding-bottom: 50px;
-  margin-bottom: 20px; 
-  margin-top:40px;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 #txt-box {
   display: flex;
-  flex-direction: row; 
-  gap:80px;
+  flex-direction: row;
+  gap: 80px;
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 50px;
@@ -110,14 +111,17 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: flex 0.3s ease-in-out;
   margin-bottom: 10px;
-  margin-top:50px;
-  
+  margin-top: 50px;
+
   background-color: transparent;
+<<<<<<< HEAD
+  animation: boxSlideIn 0.5s ease-in-out; /* Add a slide-in animation */
+  /* background-color: rgba(48, 125, 254, 0.2); */
+=======
   animation: boxSlideIn 0.5s ease-in-out; 
 
+>>>>>>> 6431780bc39a91ac718e1916d32d1cd0cba3d801
 }
-
-
 
 #out-box {
   flex: 1;
@@ -129,15 +133,12 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: flex 0.3s ease-in-out;
   margin-bottom: 10px;
-  margin-top:50px;
+  margin-top: 50px;
 
   animation: boxSlideIn 0.5s ease-in-out; 
   background-color: transparent;
-
- 
 }
 #out-box div[style="color: white; margin-bottom: 10px;"] {
-  
   color: black;
 }
 
@@ -158,7 +159,7 @@ body {
   flex-direction: column;
   background-color: white;
   border-radius: 8px;
-  overflow-y: auto; 
+  overflow-y: auto;
   max-height: 400px;
   background-color: rgba(255, 255, 255, 0.8);
 }
@@ -180,7 +181,7 @@ body {
 }
 
 .footer {
-  margin-top:20px;
+  margin-top: 20px;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -222,7 +223,6 @@ body {
   }
 }
 
-
 #download-buttons {
   display: flex;
   justify-content: center; 
@@ -247,7 +247,18 @@ body {
 }
 
 #content {
+<<<<<<< HEAD
+  border-color: #007bff; /* Highlight output border */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Slightly more opaque background */
+}
+=======
   border-color: #007bff; 
   background-color: rgba(255, 255, 255, 0.95); 
 }
 
+>>>>>>> 6431780bc39a91ac718e1916d32d1cd0cba3d801
