@@ -52,7 +52,7 @@ const TextBox = () => {
       });
 
       doc.save(`${downloadFileName}.pdf`);
-      addToHistory(summaryData.summary); // Add summary to history
+      addToHistory(summaryData.summary);
     }
   };
 
@@ -68,7 +68,7 @@ const TextBox = () => {
       setSummaryData(response.data.summary);
       setOutputWordCount(response.data.summary.split(" ").length);
       setShowOutput(true);
-      addToHistory(response.data.summary); // Add summary to history
+      addToHistory(response.data.summary);
     } catch (error) {
       console.error("Error sending data:", error);
     }

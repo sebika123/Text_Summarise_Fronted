@@ -106,23 +106,56 @@ const NavBar = () => {
             </button>
 
             {showHistory && (
-              <div className="history-sidebar">
-                <div className="history-header">
-                  <h2>History</h2>
-                  <button onClick={() => setShowHistory(false)}>Close</button>
-                </div>
-                <div className="history-list">
-                  {history.map((entry, index) => (
-                    <div
-                      key={index}
-                      className={`history-item ${
-                        index === selectedHistory ? "selected" : ""
-                      }`}
-                      onClick={() => handlePreviewClick(index)}
+              <div className="history-overlay">
+                <div className="history-sidebar">
+                  <div className="history-header">
+                    <h2>History</h2>
+                    <button
+                      onClick={() => setShowHistory(false)}
+                      style={{
+                        position: "absolute",
+                        top: "10px",
+                        left: "10px",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
                     >
-                      <p>{entry.data && entry.data.length > 0 ? entry.data[0] : "No data"}</p>
-                    </div>
-                  ))}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        style={{ width: "20px", height: "20px", fill: "white" }}
+                      >
+                        <path d="M18 6L6 18M6 6l12 12"></path>
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div className="history-list">
+                    {history.map((entry, index) => (
+                      <div
+                        key={index}
+                        className={`history-item ${
+                          index === selectedHistory ? "selected" : ""
+                        }`}
+                        onClick={() => handlePreviewClick(index)}
+                      >
+                        <p>
+                          {entry.data && entry.data.length > 0
+                            ? entry.data[0]
+                            : "No data"}
+                        </p>
+                        {index === selectedHistory && (
+                          <div className="history-details">
+                            {entry.data &&
+                              entry.data.map((line, i) => (
+                                <p key={i}>{line}</p>
+                              ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
