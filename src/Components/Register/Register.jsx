@@ -40,6 +40,10 @@ const Register = () => {
           profilePicture: ProfilePicture ? URL.createObjectURL(ProfilePicture) : null,
         });
 
+        // Save the user's name and profile picture in local storage
+        localStorage.setItem('name', Name);
+        localStorage.setItem('profilePicture', ProfilePicture ? URL.createObjectURL(ProfilePicture) : null);
+
         navigate('/home');
       } catch (err) {
         setError(err.message);
@@ -56,6 +60,7 @@ const Register = () => {
           style={{ marginBottom: '20px' }}
           type="text"
           placeholder="Name"
+          value={Name}
           onChange={(e) => setName(e.target.value)}
         />
         <br />
@@ -63,6 +68,7 @@ const Register = () => {
           style={{ marginBottom: '20px' }}
           type="text"
           placeholder="Address"
+          value={Address}
           onChange={(e) => setAddress(e.target.value)}
         />
         <br />
@@ -70,6 +76,7 @@ const Register = () => {
           style={{ marginBottom: '20px' }}
           type="email"
           placeholder="Email"
+          value={Email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <br />

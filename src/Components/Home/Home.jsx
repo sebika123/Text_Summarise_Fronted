@@ -1,3 +1,4 @@
+import React, { Component }  from 'react';
 import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import "./Styles.css";

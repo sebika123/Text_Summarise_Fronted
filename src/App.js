@@ -1,3 +1,4 @@
+import React, { Component }  from 'react';
 import './App.css'
 import LoginForm from "./Components/Login/LoginForm";
 import Register from './Components/Register/Register'
