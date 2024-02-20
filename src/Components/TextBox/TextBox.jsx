@@ -9,6 +9,7 @@ import Tracker from "./Tracker";
 import { useHistory } from "../HistoryContext";
 
 const TextBox = () => {
+  const { history, setHistory } = useHistory(); // Use the useHistory hook
   const [summaryData, setSummaryData] = useState({});
   const [formData, setFormData] = useState("");
   const [inputWordCount, setInputWordCount] = useState(0);
@@ -17,7 +18,9 @@ const TextBox = () => {
   const [showOutput, setShowOutput] = useState(false);
   const [downloadFileName, setDownloadFileName] = useState("");
 
-  const { addToHistory } = useHistory();
+  const addToHistory = (summary) => {
+    setHistory((prevHistory) => [...prevHistory, summary]);
+  };
 
   const promptForFileName = () => {
     const prompt = window.prompt("Enter a file name:");
@@ -58,21 +61,21 @@ const TextBox = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post("http://127.0.0.1:5000/analyze", {
         rawtext: formData,
         percentage: percentage,
       });
-
-      setSummaryData(response.data.summary);
+  
+      setSummaryData(response.data); // Update this line
       setOutputWordCount(response.data.summary.split(" ").length);
       setShowOutput(true);
       addToHistory(response.data.summary);
     } catch (error) {
       console.error("Error sending data:", error);
     }
-
+  
     console.log("DATA :", formData);
   };
 
