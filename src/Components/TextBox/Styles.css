@@ -196,3 +196,8 @@ font-size: 14px;
 
 
 }
+
+.output-container{
+  font-weight: bold; /* Make text bold */
+  animation: textAnimation 2s ease-in-out infinite;
+}

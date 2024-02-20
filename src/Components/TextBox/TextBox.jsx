@@ -187,7 +187,7 @@ import Footer from "../Footer/Footer";
 import { saveAs } from "file-saver";
 import jsPDF from "jspdf";
 
-import Tracker from "./Tracker";
+
 import { useHistory } from "../HistoryContext";
 
 const TextBox = () => {
@@ -282,9 +282,12 @@ const TextBox = () => {
     <div id="parent">
       <div id="txt-box">
         <form id="inp-box" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="">Enter Your Text Here</label>
-          </div>
+        <div class="output-container"style={{marginBottom:"10px"}}>
+              <label for="input-text-or-link">Enter Your Text Here</label>
+            </div>
+          {/* <div class="text-font">
+            <label htmlFor="" > Enter Your Text Here</label>
+          </div> */}
           <textarea cols="30" rows="10" id="txt-area" onChange={handleChange}></textarea>
           <div id="wordcount-div">
   <button id="wordcount-button">Word Count: <span id="wordcount-value">{inputWordCount}</span></button>
@@ -292,7 +295,7 @@ const TextBox = () => {
 
 
           {/* <div style={{ marginBottom: "10px" ,marginTop: "10px" }}>Word Count: {inputWordCount}</div> */}
-          <div style={{ marginBottom: "5px" ,marginTop: "-25px" }}>
+          <div style={{ marginBottom: "5px" ,marginTop: "-25px" ,fontWeight:"bold"}}>
             <label htmlFor="">Enter Final Percentage you want</label>
           </div>
           <input
@@ -341,11 +344,7 @@ const TextBox = () => {
           </div>
         )}
       </div>
-      <Tracker
-        onNumSummariesChange={handleNumSummariesChange}
-        onNumTxtDownloadsChange={handleNumTxtDownloadsChange}
-        onNumPdfDownloadsChange={handleNumPdfDownloadsChange}
-      />
+     
       <Footer />
     </div>
   );
