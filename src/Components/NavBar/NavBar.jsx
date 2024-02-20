@@ -95,6 +95,7 @@ const NavBar = () => {
                 onClick={handleLogout}
                 className="btn btn-outline-danger mx-2"
                 title="Logout"
+                style={{marginTop:"40px"}}
               >
                 Logout
               </button>
@@ -103,6 +104,7 @@ const NavBar = () => {
               onClick={handleShowHistory}
               className="btn btn-outline-danger mx-2"
               title="Show History"
+              style={{marginTop:"40px",height:"50px",fontSize:"14px"}}
             >
               Show History
             </button>

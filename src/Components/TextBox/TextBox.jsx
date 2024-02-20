@@ -286,8 +286,13 @@ const TextBox = () => {
             <label htmlFor="">Enter Your Text Here</label>
           </div>
           <textarea cols="30" rows="10" id="txt-area" onChange={handleChange}></textarea>
-          <div style={{ marginBottom: "10px" }}>Word Count: {inputWordCount}</div>
-          <div style={{ marginBottom: "10px" }}>
+          <div id="wordcount-div">
+  <button id="wordcount-button">Word Count: <span id="wordcount-value">{inputWordCount}</span></button>
+</div>
+
+
+          {/* <div style={{ marginBottom: "10px" ,marginTop: "10px" }}>Word Count: {inputWordCount}</div> */}
+          <div style={{ marginBottom: "5px" ,marginTop: "-25px" }}>
             <label htmlFor="">Enter Final Percentage you want</label>
           </div>
           <input
@@ -298,7 +303,7 @@ const TextBox = () => {
             onChange={handlePercentageChange}
           />
           <div id="btn">
-            <button style={{ marginTop: "10px" }} type="submit">
+            <button style={{ marginTop: "10px",marginTop: "-20px" }} type="submit">
               Summarise
             </button>
           </div>
@@ -311,7 +316,10 @@ const TextBox = () => {
             <div id="output-area">
               <div id="content">{summaryData.summary}</div>
             </div>
-            <div>Word Count: {outputWordCount}</div>
+            <div id="wordcount-div">
+  <button id="wordcount-button">Word Count: <span id="wordcount-value">{outputWordCount}</span></button>
+</div>
+            {/* <div style={{ marginBottom: "10px",marginTop: "15px" }}>Word Count: {outputWordCount}</div> */}
             <div id="download-buttons">
               <button
                 onClick={downloadTextSummary}
