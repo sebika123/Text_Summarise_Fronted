@@ -32,7 +32,9 @@ const NavBar = () => {
       style={{
         position: "fixed",
         width: "100%",
-        zIndex: 1000,
+        // zIndex: 1000,
+        marginLeft:"50",
+        left:"0px",
         backgroundColor: "rgba(232, 103, 184, 0.9)",
       }}
     >
