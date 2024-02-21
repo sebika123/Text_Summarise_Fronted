@@ -92,7 +92,9 @@ button:active {
   margin-top: 15px;
   background-color: rgba(48, 125, 254, 0.2) ;
   width: 400px;
+  height:80px;
   box-sizing: border-box;
+  padding:30px;
 }
 .form-inputs {
     margin: 20px auto;
