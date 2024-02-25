@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../../Context/UserAuthContext';
+import { getAuth, sendEmailVerification } from 'firebase/auth';
 
 const Register = () => {
   const [Email, setEmail] = useState('');
@@ -31,6 +32,10 @@ const Register = () => {
       try {
         // Signup user with Firebase
         const userCredential = await signUp(Email, Password);
+
+        // Send email verification
+        const auth = getAuth();
+        await sendEmailVerification(auth.currentUser);
 
         setUser({
           uid: userCredential.user.uid,
