@@ -32,7 +32,9 @@ const NavBar = () => {
       style={{
         position: "fixed",
         width: "100%",
-        zIndex: 1000,
+        // zIndex: 1000,
+        marginLeft:"50",
+        left:"0px",
         backgroundColor: "rgba(232, 103, 184, 0.9)",
       }}
     >
@@ -93,6 +95,7 @@ const NavBar = () => {
                 onClick={handleLogout}
                 className="btn btn-outline-danger mx-2"
                 title="Logout"
+                style={{marginTop:"40px"}}
               >
                 Logout
               </button>
@@ -101,6 +104,7 @@ const NavBar = () => {
               onClick={handleShowHistory}
               className="btn btn-outline-danger mx-2"
               title="Show History"
+              style={{marginTop:"40px",height:"50px",fontSize:"14px"}}
             >
               Show History
             </button>

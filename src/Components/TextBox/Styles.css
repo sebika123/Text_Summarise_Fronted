@@ -33,7 +33,8 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 30px;
+  margin-bottom:50px;
 
 
   border-radius: 8px;
@@ -179,4 +180,24 @@ body {
     255,
     0.95
   ); /* Slightly more opaque background */
+}
+
+#txt-box{
+  padding:10px;
+  margin-bottom:-100px;
+}
+
+#wordcount-button{
+padding:5px 5px;
+border-radius: 5px;
+width:120px;
+background-color:rgb(41, 100, 228);
+font-size: 14px;
+
+
+}
+
+.output-container{
+  font-weight: bold; /* Make text bold */
+  animation: textAnimation 2s ease-in-out infinite;
 }

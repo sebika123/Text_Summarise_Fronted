@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import TextSummarizer from '../TextSummarizer/TextSummarizer';
 import { useUserAuth } from '../../Context/UserAuthContext';
 import { getAuth, sendEmailVerification } from 'firebase/auth';
+import './Styles.css';
 
 const Register = () => {
   const [Email, setEmail] = useState('');
@@ -58,6 +60,8 @@ const Register = () => {
 
   return (
     <>
+    <div className="conatiner">
+    <TextSummarizer />
       <form onSubmit={handleSubmit} id="registration-form">
         <h1 style={{ marginBottom: '20px' }}>Register</h1>
         {error && <p className="error-msg">{error}</p>}
@@ -96,7 +100,9 @@ const Register = () => {
         <br />
         <button type="submit">Sign Up</button>
       </form>
-      <div className="link-container">
+     
+    </div>
+    <div className="link-container" style={{marginBottom:"-200px;"}}>
         <p>
           Already Registered ? <Link to="/">Sign In</Link>
         </p>
