@@ -1,33 +1,32 @@
-
-  /* @import 'animate.css'; */
-
 body {
- 
-  
-    
-   
-    background-image: url('image1.jpg'); 
- 
-  background-color: rgba(48, 125, 254, 0.2) ; /* Or your preferred background color */
+  background-image: url("Hero Stack.png");
+  background-color: rgba(48, 125, 254, 0.2);
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  border-radius: 5px;
 }
 
 #login-form {
   animation: fadeIn 0.5s ease-in-out;
-  background-color: rgba(48, 125, 254, 0.2) ;
-  border: 1px solid rgba(48, 125, 254, 0.2) ;
+  background-color: rgba(48, 125, 254, 0.2);
+  border: 1px solid rgba(48, 125, 254, 0.2);
   padding: 30px;
-  width: 400px;
+  max-width: 400px;
+  width: 90%; /* Adjusted for responsiveness */
   box-sizing: border-box;
-  border-radius: 6px; /* Add rounded corners */
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; /* Add a subtle shadow */
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   text-align: center;
-  
-  gap:10px;
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+@media (max-width: 600px) {
+  #login-form {
+    padding: 20px;
+  }
 }
 
 h1 {
@@ -42,20 +41,25 @@ p {
   text-align: center;
 }
 
-input, button {
+input,
+button {
   width: 100%;
   padding: 10px;
-  margin-bottom: 40px;
- 
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 20px;
   box-sizing: border-box;
   font-size: 16px;
   transition: all 0.3s ease-in-out;
-  
 }
 
-input:focus, button:focus {
+@media (max-width: 600px) {
+  input,
+  button {
+    padding: 8px;
+  }
+}
+
+input:focus,
+button:focus {
   outline: none;
   border-color: #58a4ff;
   box-shadow: rgba(48, 125, 254, 0.2) 0px 0px 0px 1px;
@@ -72,10 +76,10 @@ button:active {
 }
 
 #google-button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 .error-msg {
   animation: shake 0.3s;
@@ -90,46 +94,33 @@ button:active {
 .link-container {
   text-align: center;
   margin-top: 55px;
-  background-color: rgba(48, 125, 254, 0.2) ;
+  background-color: rgba(48, 125, 254, 0.2);
   width: 400px;
-  height:80px;
+  height: 80px;
   box-sizing: border-box;
-  padding:30px;
-}
-.form-inputs {
-    margin: 20px auto;
-    margin-bottom: 10px; 
-    display: flex; /* Arrange inputs side-by-side */
-    flex-direction: column; /* Stack inputs vertically */
-    gap: 30px; /* Add spacing between inputs */
-  }
-  
-  input {
-   
-    width: 100%; /* Ensure inputs take full width within the column */
-  }
-  #txt-area {
-  width: 100%; /* Take full width of parent container */
+  padding: 30px;
 }
 
-#out-box {
-  flex: 1; /* Expand to fill available space */
+@media (max-width: 600px) {
+  .link-container {
+    width: 90%; /* Adjusted for responsiveness */
+  }
+}
+
+.form-inputs {
+  margin: 20px auto;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  /* ... other styles ... */
-  animation: slideInFromBottom 0.5s ease-in-out; /* Apply animation */
+  gap: 30px;
 }
 
-@keyframes slideInFromBottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+input {
+  width: 100%;
 }
 
-
-
+@media (max-width: 600px) {
+  .form-inputs {
+    gap: 20px;
+  }
+}
