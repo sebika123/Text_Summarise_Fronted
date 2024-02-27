@@ -8,7 +8,6 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 const NavBar = () => {
   const { user, logOut } = useUserAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const [showHistory, setShowHistory] = useState(false);
   const { history, addToHistory } = useHistory();
   const [selectedHistory, setSelectedHistory] = useState(null);
@@ -35,7 +34,7 @@ const NavBar = () => {
         // zIndex: 1000,
         marginLeft:"50",
         left:"0px",
-        backgroundColor: "rgba(232, 103, 184, 0.9)",
+        backgroundColor: "rgba(31, 13, 13, 0.897)",
       }}
     >
       <div className="container">
@@ -44,7 +43,7 @@ const NavBar = () => {
             <img
               src={logo}
               alt="Logo"
-              style={{ width: "20px", marginLeft: "-70px" }}
+              style={{ width: "20px", marginLeft: "-70px", marginTop: "70px"}}
             />
             <h1>Text Summariser</h1>
           </div>
@@ -104,7 +103,7 @@ const NavBar = () => {
               onClick={handleShowHistory}
               className="btn btn-outline-danger mx-2"
               title="Show History"
-              style={{marginTop:"40px",height:"50px",fontSize:"14px"}}
+              style={{marginTop:"30px",height:"30px",fontSize:"14px"}}
             >
               Show History
             </button>
