@@ -1,3 +1,5 @@
+
+
 // import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // const HistoryContext = createContext();
@@ -13,26 +15,29 @@
 //   const addToHistory = (data, userId) => {
 //     setHistory((prevHistory) => {
 //       const userHistoryIndex = prevHistory.findIndex((entry) => entry.userId === userId);
-  
+
+//       // Create a copy of the history array
+//       const updatedHistory = [...prevHistory];
+
 //       if (userHistoryIndex !== -1) {
-//         if (!prevHistory[userHistoryIndex].data) {
-//           prevHistory[userHistoryIndex].data = [];
+//         // If the user exists in history, update the data
+//         if (!updatedHistory[userHistoryIndex].data) {
+//           updatedHistory[userHistoryIndex].data = [];
 //         }
-//         prevHistory[userHistoryIndex].data.push(data);
+//         updatedHistory[userHistoryIndex].data.push(data);
 //       } else {
-//         const updatedHistory = [
-//           ...prevHistory,
-//           { userId, data: [data] }
-//         ];
-//         localStorage.setItem('history', JSON.stringify(updatedHistory));
-//         return updatedHistory;
+//         // If the user doesn't exist, add a new entry
+//         updatedHistory.push({ userId, data: [data] });
 //       }
-  
-//       localStorage.setItem('history', JSON.stringify(prevHistory));
-//       return prevHistory;
+
+//       // Update localStorage with the modified history
+//       localStorage.setItem('history', JSON.stringify(updatedHistory));
+
+//       // Set the state to the modified history
+//       return updatedHistory;
 //     });
 //   };
-  
+
 //   const contextValue = {
 //     history,
 //     addToHistory,
@@ -50,12 +55,20 @@
 // };
 
 
+
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const HistoryContext = createContext();
 
 export const HistoryProvider = ({ children }) => {
   const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    // Clear the history in local storage and in the state on component mount (refresh)
+    localStorage.removeItem('history');
+    setHistory([]);
+  }, []);
 
   useEffect(() => {
     const historyFromLocalStorage = JSON.parse(localStorage.getItem('history')) || [];
@@ -65,25 +78,18 @@ export const HistoryProvider = ({ children }) => {
   const addToHistory = (data, userId) => {
     setHistory((prevHistory) => {
       const userHistoryIndex = prevHistory.findIndex((entry) => entry.userId === userId);
-
-      // Create a copy of the history array
       const updatedHistory = [...prevHistory];
 
       if (userHistoryIndex !== -1) {
-        // If the user exists in history, update the data
         if (!updatedHistory[userHistoryIndex].data) {
           updatedHistory[userHistoryIndex].data = [];
         }
         updatedHistory[userHistoryIndex].data.push(data);
       } else {
-        // If the user doesn't exist, add a new entry
         updatedHistory.push({ userId, data: [data] });
       }
 
-      // Update localStorage with the modified history
       localStorage.setItem('history', JSON.stringify(updatedHistory));
-
-      // Set the state to the modified history
       return updatedHistory;
     });
   };

@@ -44,7 +44,7 @@ const NavBar = () => {
             <img
               src={logo}
               alt="Logo"
-              style={{ width: "20px", marginLeft: "-70px" }}
+              style={{ width: "20px", marginLeft: "0px" }}
             />
             <h1>Text Summariser</h1>
           </div>
