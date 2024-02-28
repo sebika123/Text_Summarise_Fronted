@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import GoogleButton from 'react-google-button';
-import { useUserAuth } from '../../Context/UserAuthContext';
-import TextSummarizer from '../TextSummarizer/TextSummarizer';
-import { getAuth } from 'firebase/auth'; // Corrected import
-import './Styles.css';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import GoogleButton from "react-google-button";
+import { useUserAuth } from "../../Context/UserAuthContext";
+import TextSummarizer from "../TextSummarizer/TextSummarizer";
+import { getAuth } from "firebase/auth"; // Corrected import
+import { eye, eyeOff } from "ionicons/icons"; // Import eye icons from Ionicons
+import { IonIcon } from "@ionic/react"; // Import IonIcon from Ionicons
+import "./Styles.css";
 
 const LoginForm = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [ShowPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [error, setError] = useState("");
   const { logIn, googleSignIn } = useUserAuth();
   const navigate = useNavigate();
@@ -53,38 +56,56 @@ const LoginForm = () => {
   return (
     <>
       <TextSummarizer />
-      <form onSubmit={handleSubmitSignInWithEmailAndPassword} id='login-form'>
+      <form onSubmit={handleSubmitSignInWithEmailAndPassword} id="login-form">
         <h1 style={{ marginBottom: "20px" }}>Login</h1>
-        {error && <p className='error-msg'>{error}</p>}
+        {error && <p className="error-msg">{error}</p>}
         <input
           style={{ marginBottom: "20px" }}
           type="email"
-          placeholder='Email'
+          placeholder="Email"
           required
-          onChange={(e) => { setEmail(e.target.value) }}
-        /><br />
-        <input
-          style={{ marginBottom: "20px" }}
-          type="password"
-          placeholder='Password'
-          required
-          minLength={8}
-          onChange={(e) => { setPassword(e.target.value) }}
-        /><br />
-        <button style={{ marginBottom: "10px" }} type='submit'>Sign In</button>
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <br />
+        <div style={{ position: "relative" }}>
+          <input
+            style={{ marginBottom: "20px" }}
+            type={ShowPassword ? "text" : "password"}
+            placeholder="Password"
+            required
+            minLength={8}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <IonIcon
+            icon={ShowPassword ? eye : eyeOff}
+            style={{
+              position: "absolute",
+              right: "8px", // adjust here based on your icon's width
+              top: "38%",
+              transform: "translate(-50%, -50%)", // adjust here
+              cursor: "pointer",
+            }}
+            onClick={() => setShowPassword(!ShowPassword)}
+          />
+        </div>
+        <br />
+        <button style={{ marginBottom: "10px" }} type="submit">
+          Sign In
+        </button>
         <Link to="/forgot-password" className="forgot-password-option">
           Forgot Password?
         </Link>
-        <div id="google-button-container" >
-        
+        <div id="google-button-container">
           <GoogleButton onClick={handleGoogleSignIn} />
+          <p>
+            New User? <Link to="/Register">Register</Link>
+          </p>
         </div>
       </form>
-      <div className="link-container">
-        <p>
-          New User? <Link to="/Register">Register</Link>
-        </p>
-      </div>
     </>
   );
 };

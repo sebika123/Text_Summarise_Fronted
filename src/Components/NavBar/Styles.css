@@ -13,8 +13,8 @@
 nav {
   animation: slide-in 0.5s ease-in-out,
              color-shift 5s ease-in-out infinite;
-  padding: var(--margin-default) 20px;
-  width: 100vw;
+  /* padding: var(--margin-default) 20px; */
+  width: 100%;
   border-radius: 10px;
   position: fixed;
   top: 0;
@@ -23,6 +23,7 @@ nav {
   flex-wrap: wrap;
   height: var(--navbar-height);
   transition: background-color 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 @keyframes slide-in {
@@ -68,7 +69,7 @@ nav ul li a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 10px 15px; /* Add padding for better touch targets */
+  padding: 10px 50px; /* Increase the right and left padding */
 }
 
 nav ul li a:hover,
