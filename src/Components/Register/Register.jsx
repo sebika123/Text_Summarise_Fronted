@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import TextSummarizer from "../TextSummarizer/TextSummarizer";
 import { useUserAuth } from "../../Context/UserAuthContext";
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import "./Styles.css";
@@ -44,9 +43,7 @@ const Register = () => {
           email: userCredential.user.email,
           name: Name,
           address: Address,
-          profilePicture: ProfilePicture
-            ? URL.createObjectURL(ProfilePicture)
-            : null,
+          profilePicture: ProfilePicture ? URL.createObjectURL(ProfilePicture) : null,
         });
 
         // Save the user's name and profile picture in local storage
@@ -65,8 +62,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="conatiner">
-        <TextSummarizer />
+      <div className="container">
         <form onSubmit={handleSubmit} id="registration-form">
           <h1 style={{ marginBottom: "20px" }}>Register</h1>
           {error && <p className="error-msg">{error}</p>}
