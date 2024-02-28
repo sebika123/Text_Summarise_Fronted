@@ -1,40 +1,40 @@
+
+  /* @import 'animate.css'; */
+
 body {
-  background-image: url("download.jpg");
-  background-color: (0, 0, 0, 0.897);
+ 
+  
+    
+   
+    background-image: url('image1.jpg'); 
+ 
+  background-color: rgba(48, 125, 254, 0.2) ; /* Or your preferred background color */
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  color: white; /* Set text color to white */
+  min-height: 125vh;
 }
 
 #login-form {
   animation: fadeIn 0.5s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.897);
+  background-color: rgba(48, 125, 254, 0.2) ;
+  border: 1px solid rgba(48, 125, 254, 0.2) ;
   padding: 30px;
-  max-width: 400px;
-  width: 90%;
+  width: 400px;
   box-sizing: border-box;
-  border-radius: 6px;
-  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; */
+  border-radius: 6px; /* Add rounded corners */
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; /* Add a subtle shadow */
   text-align: center;
-  margin: 0 auto;
-}
-
-@media (max-width: 600px) {
-  #login-form {
-    padding: 20px;
-  }
+  
+  gap:10px;
 }
 
 h1 {
-  margin-top: 15;
+  margin-top: 0;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  text-decoration-color: white;
-  /* background-color: rgba(0, 0, 0, 0.897); */
 }
 
 p {
@@ -42,36 +42,28 @@ p {
   text-align: center;
 }
 
-input,
-button {
+input, button {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+ 
+  border: 1px solid #ccc;
+  border-radius: 5px;
   box-sizing: border-box;
   font-size: 16px;
   transition: all 0.3s ease-in-out;
-  color: white; /* Set text color to white */
-  background-color: rgba(0, 0, 0, 0.897); /* Set background color */
-  border: none; /* Remove default border */
+  
 }
 
-@media (max-width: 600px) {
-  input,
-  button {
-    padding: 8px;
-  }
-}
-
-input:focus,
-button:focus {
+input:focus, button:focus {
   outline: none;
-  background-color: rgba(0, 0, 0, 0.897);
-  box-shadow: rgba(31, 13, 13, 0.897) 0px 0px 0px 1px;
+  border-color: #58a4ff;
+  box-shadow: rgba(48, 125, 254, 0.2) 0px 0px 0px 1px;
 }
 
 button {
-  background-color: (0, 0, 0, 0.897);
-  color: white;
+  background-color: #58a4ff;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -80,54 +72,64 @@ button:active {
 }
 
 #google-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
 
 .error-msg {
   animation: shake 0.3s;
   color: red;
-  background-color: rgba(0, 0, 0, 0.897);
+  background-color: rgba(255, 0, 0, 0.07);
   padding: 8px;
   margin-bottom: 15px;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 .link-container {
   text-align: center;
-  text-decoration-color: white;
-  margin-top: 40px;
-  background-color: rgba(0, 0, 0, 0.897);
-  width: 350px;
-  height: 55px;
+  margin-top: 55px;
+  background-color: rgba(48, 125, 254, 0.2) ;
+  width: 400px;
+  height:80px;
   box-sizing: border-box;
-  padding: 10px;
-  border-radius: 5px;
-  /* margin-top: 40px; */
+  padding:30px;
 }
-
-@media (max-width: 600px) {
-  .link-container {
-    width: 90%;
-  }
-}
-
 .form-inputs {
-  margin: 20px auto;
-  margin-bottom: 10px;
+    margin: 20px auto;
+    margin-bottom: 10px; 
+    display: flex; /* Arrange inputs side-by-side */
+    flex-direction: column; /* Stack inputs vertically */
+    gap: 30px; /* Add spacing between inputs */
+  }
+  
+  input {
+   
+    width: 100%; /* Ensure inputs take full width within the column */
+  }
+  #txt-area {
+  width: 100%; /* Take full width of parent container */
+}
+
+#out-box {
+  flex: 1; /* Expand to fill available space */
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  /* ... other styles ... */
+  animation: slideInFromBottom 0.5s ease-in-out; /* Apply animation */
 }
 
-input {
-  width: 100%;
-}
-
-@media (max-width: 600px) {
-  .form-inputs {
-    gap: 20px;
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
+
+
+

@@ -16,7 +16,7 @@ body {
   padding: 0 10px; /* Adjust the left and right padding as needed */
   width: 100%;
   height: 100%;
-  background-image: url('download.jpg'); /* Absolute path to the image */
+  background-image: url('./download.jpg'); /* Absolute path to the image */
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -64,7 +64,7 @@ body {
 }
 
 button {
-  background-color: #c0ba02;
+  background-color: #3498db;
   color: #ffffff;
   padding: 10px;
   border: none;
