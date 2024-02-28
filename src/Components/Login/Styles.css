@@ -1,22 +1,27 @@
 body {
   background-image: url("image1.jpg");
-  background-color: rgba(48, 125, 254, 0.2);
+  background-color: rgba(95, 96, 99, 0.5);;
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 110vh;
 }
-
+.text-summarizer {
+  animation: fadeIn 0.5s ease-in-out;
+  border: 1px solid rgba(95, 96, 99, 0.5);
+  background-color: rgba(95, 96, 99, 0.5);
+  box-sizing: border-box;
+}
 #login-form {
   animation: fadeIn 0.5s ease-in-out;
-  background-color: rgba(48, 125, 254, 0.2);
-  border: 1px solid rgba(48, 125, 254, 0.2);
+  background-color: rgba(95, 96, 99, 0.5);
+  border: 1px solid rgba(95, 96, 99, 0.5);
   padding: 30px;
   width: 400px;
   box-sizing: border-box;
   border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  box-shadow: rgba(95, 96, 99, 0.5); 
   text-align: center;
 }
 
@@ -47,12 +52,12 @@ button {
 input:focus,
 button:focus {
   outline: none;
-  border-color: #58a4ff;
-  box-shadow: rgba(48, 125, 254, 0.2) 0px 0px 0px 1px;
+  border-color: #ff5858;
+  box-shadow: rgba(95, 96, 99, 0.5); 
 }
 
 button {
-  background-color: #58a4ff;
+  background-color:  #ff5858;
   color: #fff;
   cursor: pointer;
 }
@@ -73,7 +78,7 @@ button:active {
 .error-msg {
   animation: shake 0.3s;
   color: red;
-  background-color: rgba(255, 0, 0, 0.07);
+  background-color: rgba(95, 96, 99, 0.5);;
   padding: 8px;
   margin-bottom: 15px;
   text-align: center;
@@ -83,7 +88,7 @@ button:active {
 .link-container {
   text-align: center;
   margin-top: 55px;
-  background-color: rgba(48, 125, 254, 0.2);
+  background-color: rgba(95, 96, 99, 0.5);;
   width: 400px;
   height: 80px;
   box-sizing: border-box;

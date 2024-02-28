@@ -8,7 +8,6 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 const NavBar = () => {
   const { user, logOut } = useUserAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const [showHistory, setShowHistory] = useState(false);
   const { history, addToHistory } = useHistory();
   const [selectedHistory, setSelectedHistory] = useState(null);
@@ -32,9 +31,8 @@ const NavBar = () => {
       style={{
         position: "fixed",
         width: "100%",
-        // zIndex: 1000,
-        marginLeft:"50",
-        left:"0px",
+        marginLeft: "50",
+        left: "0px",
         backgroundColor: "rgba(232, 103, 184, 0.9)",
       }}
     >
@@ -44,7 +42,7 @@ const NavBar = () => {
             <img
               src={logo}
               alt="Logo"
-              style={{ width: "20px", marginLeft: "-70px" }}
+              style={{ width: "20px", marginLeft: "-12px" }}
             />
             <h1>Text Summariser</h1>
           </div>
@@ -95,7 +93,7 @@ const NavBar = () => {
                 onClick={handleLogout}
                 className="btn btn-outline-danger mx-2"
                 title="Logout"
-                style={{marginTop:"40px"}}
+                style={{ marginTop: "40px", width: "80px", fontSize: "14px" }}
               >
                 Logout
               </button>
@@ -104,7 +102,12 @@ const NavBar = () => {
               onClick={handleShowHistory}
               className="btn btn-outline-danger mx-2"
               title="Show History"
-              style={{marginTop:"40px",height:"50px",fontSize:"14px"}}
+              style={{
+                marginTop: "40px",
+                width: "120px",
+                fontSize: "14px",
+                textAlign: "center",
+              }}
             >
               Show History
             </button>

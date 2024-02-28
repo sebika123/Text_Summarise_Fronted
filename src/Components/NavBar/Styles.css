@@ -13,8 +13,7 @@
 nav {
   animation: slide-in 0.5s ease-in-out,
              color-shift 5s ease-in-out infinite;
-  /* padding: var(--margin-default) 20px; */
-  width: 100%;
+  width: 200%;
   border-radius: 10px;
   position: fixed;
   top: 0;
@@ -45,31 +44,31 @@ nav {
 }
 
 .navbar-brand-wrapper {
-  display: flex; /* Enable flexbox layout */
-  align-items: center; /* Vertically align logo and h1 */
+  display: flex;
+  align-items: center;
 }
 
 .navbar-brand-wrapper img {
-  margin-left: 30px; /* Optional: Add space between logo and h1 */
+  margin-left: 0px; /* Optional: Add space between logo and h1 */
 }
 
 nav ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 nav ul li {
-  margin-left: auto; /* Push links to the right */
+  margin-left: 2px; /* Push links to the right */
 }
 
 nav ul li a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 10px 50px; /* Increase the right and left padding */
+  padding: 20px 50px; /* Increase the right and left padding */
 }
 
 nav ul li a:hover,

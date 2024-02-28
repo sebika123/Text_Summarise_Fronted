@@ -9,8 +9,8 @@
 
 #registration-form {
   animation: fadeIn 0.5s ease-in-out;
-  background-color: rgba(48, 125, 254, 0.2);
-  border: 1px solid rgba(48, 125, 254, 0.2);
+  background-color:rgba(95, 96, 99, 0.5);
+  border: 1px solid rgba(95, 96, 99, 0.5);
   padding: 30px;
   width: 400px;
   box-sizing: border-box;
