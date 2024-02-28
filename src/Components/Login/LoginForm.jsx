@@ -55,7 +55,7 @@ const LoginForm = () => {
 
   return (
     <>
-      <TextSummarizer />
+     <TextSummarizer className="text-summarizer" />
       <form onSubmit={handleSubmitSignInWithEmailAndPassword} id="login-form">
         <h1 style={{ marginBottom: "20px" }}>Login</h1>
         {error && <p className="error-msg">{error}</p>}

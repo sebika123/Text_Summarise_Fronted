@@ -13,8 +13,7 @@
 nav {
   animation: slide-in 0.5s ease-in-out,
              color-shift 5s ease-in-out infinite;
-  /* padding: var(--margin-default) 20px; */
-  width: 100%;
+  width: 150%;
   border-radius: 10px;
   position: fixed;
   top: 0;
