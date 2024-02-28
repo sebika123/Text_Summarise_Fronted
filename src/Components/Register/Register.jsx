@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useUserAuth } from "../../Context/UserAuthContext";
 import { getAuth, sendEmailVerification } from "firebase/auth";
+import { useUserAuth } from "../../Context/UserAuthContext";
 import "./Styles.css";
 
 const Register = () => {
@@ -11,6 +11,7 @@ const Register = () => {
   const [Address, setAddress] = useState("");
   const [ProfilePicture, setProfilePicture] = useState(null);
   const [error, setError] = useState("");
+  const [emailVerificationSent, setEmailVerificationSent] = useState(false);
   const { signUp, setUser } = useUserAuth();
   const navigate = useNavigate();
 
@@ -38,6 +39,9 @@ const Register = () => {
         const auth = getAuth();
         await sendEmailVerification(auth.currentUser);
 
+        // Update state to indicate email verification is sent
+        setEmailVerificationSent(true);
+
         setUser({
           uid: userCredential.user.uid,
           email: userCredential.user.email,
@@ -53,7 +57,6 @@ const Register = () => {
           ProfilePicture ? URL.createObjectURL(ProfilePicture) : null
         );
 
-        navigate("/home");
       } catch (err) {
         setError(err.message);
       }
@@ -66,46 +69,52 @@ const Register = () => {
         <form onSubmit={handleSubmit} id="registration-form">
           <h1 style={{ marginBottom: "20px" }}>Register</h1>
           {error && <p className="error-msg">{error}</p>}
-          <input
-            style={{ marginBottom: "20px" }}
-            type="text"
-            placeholder="Name"
-            value={Name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <br />
-          <input
-            style={{ marginBottom: "20px" }}
-            type="text"
-            placeholder="Address"
-            value={Address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-          <br />
-          <input
-            style={{ marginBottom: "20px" }}
-            type="email"
-            placeholder="Email"
-            value={Email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            minLength={8}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <input
-            type="file"
-            onChange={(e) => setProfilePicture(e.target.files[0])}
-          />
-          <br />
-          <button type="submit">Sign Up</button>
-          <p>
-            Already Registered ? <Link to="/">Sign In</Link>
-          </p>
+          {emailVerificationSent ? (
+            <p>Email verification sent. Please check your email to verify your account.</p>
+          ) : (
+            <>
+              <input
+                style={{ marginBottom: "20px" }}
+                type="text"
+                placeholder="Name"
+                value={Name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <br />
+              <input
+                style={{ marginBottom: "20px" }}
+                type="text"
+                placeholder="Address"
+                value={Address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+              <br />
+              <input
+                style={{ marginBottom: "20px" }}
+                type="email"
+                placeholder="Email"
+                value={Email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <br />
+              <input
+                type="password"
+                placeholder="Password"
+                minLength={8}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <br />
+              <input
+                type="file"
+                onChange={(e) => setProfilePicture(e.target.files[0])}
+              />
+              <br />
+              <button type="submit">Sign Up</button>
+              <p>
+                Already Registered ? <Link to="/">Sign In</Link>
+              </p>
+            </>
+          )}
         </form>
       </div>
     </>
