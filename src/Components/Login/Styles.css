@@ -78,7 +78,7 @@ button:active {
 .error-msg {
   animation: shake 0.3s;
   color: red;
-  background-color: rgba(95, 96, 99, 0.5);;
+  background-color: rgba(95, 96, 99, 0.5);
   padding: 8px;
   margin-bottom: 15px;
   text-align: center;
