@@ -1,22 +1,22 @@
-
-.container{
-  position:absolute;
-  overflow-y: auto;
+.container {
+  position: relative;
+  height: 120vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; 
 }
 
-
-#registration-form{
+#registration-form {
   animation: fadeIn 0.5s ease-in-out;
-  background-color: rgba(48, 125, 254, 0.2) ;
-  border: 1px solid rgba(48, 125, 254, 0.2) ;
+  background-color: rgba(48, 125, 254, 0.2);
+  border: 1px solid rgba(48, 125, 254, 0.2);
   padding: 30px;
   width: 400px;
   box-sizing: border-box;
-  border-radius: 6px; /* Add rounded corners */
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; /* Add a subtle shadow */
+  border-radius: 6px; 
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; 
   text-align: center;
-  margin-bottom: -120px;
-  gap:10px;
 }
 
 h1 {
@@ -31,11 +31,11 @@ p {
   text-align: center;
 }
 
-
-
-
-
-
-
-   
- 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
