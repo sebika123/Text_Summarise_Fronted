@@ -1,6 +1,6 @@
 
   .footer {
-    position: fixed; /* Fixed at the bottom */
+    position: fixed; 
     bottom: 0;
     width: 10%;
     background-color: rgba(95, 96, 99, 0.5);

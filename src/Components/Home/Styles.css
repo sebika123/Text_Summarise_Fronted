@@ -1,9 +1,20 @@
 
+<<<<<<< HEAD
+#home{
+  margin-top:-800px;
+  height:80vh;
+}
+#banner{
+  margin-top:350px; 
+}
+=======
+>>>>>>> f3fe731cec13294aa938c2594da324a579084c5f
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  overflow: hidden;
+  height: 50dvh;
+  overflow: y- auto;
+  margin-bottom:50px;
 }
 
 .background-container {
@@ -14,7 +25,7 @@ body {
   bottom: 0; /* Set bottom to 0 to cover the whole height */
   padding: 0 10px; /* Adjust the left and right padding as needed */
   width: 100%;
-  height: 100%;
+  height:100%;
   background-image: url('./download.jpg'); /* Absolute path to the image */
   background-size: cover;
   background-position: center;
@@ -24,22 +35,36 @@ body {
 #home-content {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Set min-height to 100vh for the content to fill the screen */
+  /* min-height: 100vh;  */
+  height:50 px;
+
+  
+  /* justify-content: space-between; */
+  margin-top:250px;
+  /* margin-bottom:-100px; */
+  width:80%;
+  margin-left:50px;
+
+  
 }
 
 .text-container {
   text-align: justify;
-  color: #fff;
+  color: black;
   opacity: 0;
   animation: fadeInUp 1.5s 1.5s ease-out;
   transition: opacity 0.5s, transform 0.5s;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
   border-radius: 8px;
-  width: calc(100% - 40px); /* Cover whole width with 20px padding on each side */
-  max-width: 600px;
+  width:100%;
+  /* width: calc(100% - 40px);  */
+  max-width: 1425px;
+  margin-right:40px;
   margin: auto; /* Center the text container */
   animation: colorChange 5s infinite alternate; 
+  margin-bottom:1100px;
+  margin-top:-70px;
 }
 @keyframes fadeInUp {
   from {
@@ -52,7 +77,7 @@ body {
   }
 }
 
-.loading-spinner {
+/* .loading-spinner {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,7 +85,7 @@ body {
   font-size: 1.5rem;
   color: #fff;
   transition: opacity 0.5s;
-}
+} */
 
 button {
   background-color: #3498db;
@@ -69,10 +94,15 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+
+ 
 }
 
 button:hover {
   background-color: #2980b9;
+}
+#skills{
+  /* height:50px; */
 }
 
 .footer {

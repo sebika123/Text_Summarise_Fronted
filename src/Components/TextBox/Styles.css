@@ -1,12 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  
 
   background-image: url("download.jpg");
   background-size: cover;
   background-position: center;
   overflow-y: auto;
+  height: 300%;
 }
 
 #parent {
@@ -14,19 +15,31 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: 250%;
   padding-bottom: 50px;
   margin-bottom: 20px;
-  margin-top: 40px;
+  margin-top:-100px;
+ 
+  /* height: 300vh; */
 }
 
+#cara{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  margin-top:-105px;
+  
+}
 #txt-box {
   display: flex;
   flex-direction: row;
   gap: 80px;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-top: 300px;
+  height:120%;
+  
 }
 
 #inp-box {
@@ -34,7 +47,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  margin-bottom:50px;
+ 
 
 
   border-radius: 8px;
@@ -42,7 +55,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: flex 0.3s ease-in-out;
   margin-bottom: 10px;
-  margin-top: 50px;
+  margin-top: 400px;
 
   background-color: transparent;
   animation: boxSlideIn 0.5s ease-in-out; /* Add a slide-in animation */
@@ -59,7 +72,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: flex 0.3s ease-in-out;
   margin-bottom: 10px;
-  margin-top: 50px;
+  margin-top: 400px;
 
   animation: boxSlideIn 0.5s ease-in-out; 
   background-color: transparent;

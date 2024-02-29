@@ -5,6 +5,10 @@ import Footer from "../Footer/Footer";
 import { saveAs } from "file-saver";
 import jsPDF from "jspdf";
 
+<<<<<<< HEAD
+import Carousel from '../Carousel/Carousel';
+=======
+>>>>>>> f3fe731cec13294aa938c2594da324a579084c5f
 import { useHistory } from "../HistoryContext";
 
 const TextBox = () => {
@@ -84,7 +88,10 @@ const TextBox = () => {
   };
 
   return (
-    <div id="parent">
+    <div id="parent" >
+     <div id="cara">
+     <Carousel />
+      </div>
       <div id="txt-box">
         <form id="inp-box" onSubmit={handleSubmit}>
           <div class="output-container" style={{ marginBottom: "10px" }}>
@@ -149,6 +156,7 @@ const TextBox = () => {
               <button
                 onClick={downloadTextSummary}
                 style={{
+                  marginTop:'-30px',
                   marginRight: "10px",
                   backgroundColor: "lightblue",
                   color: "black",
@@ -158,7 +166,7 @@ const TextBox = () => {
               </button>
               <button
                 onClick={downloadPDFSummary}
-                style={{ backgroundColor: "lightgreen", color: "black" }}
+                style={{ backgroundColor: "lightgreen", color: "black", marginTop:'-30px', }}
               >
                 Download PDF
               </button>
