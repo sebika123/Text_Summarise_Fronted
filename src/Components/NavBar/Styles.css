@@ -22,7 +22,7 @@ nav {
   flex-wrap: wrap;
   height: var(--navbar-height);
   transition: background-color 0.3s ease-in-out;
-  z-index: 10;
+  z-index: 2px;
 }
 
 @keyframes slide-in {
@@ -68,7 +68,7 @@ nav ul li a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 20px 50px; /* Increase the right and left padding */
+  padding: 10px 10px; /* Increase the right and left padding */
 }
 
 nav ul li a:hover,
