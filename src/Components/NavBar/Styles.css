@@ -1,7 +1,7 @@
 :root {
   --primary-color: rgb(58, 143, 255);
   --btn-clr: rgb(58, 143, 255);
-  --border-clr: rgba(100, 100, 100, 0.318);
+  --border-clr: rgba(95, 96, 99, 0.5);
   --logout-button-size: 36px;
   --font-size-default: 16px;
   --font-size-large: 32px;
@@ -17,12 +17,12 @@ nav {
   border-radius: 10px;
   position: fixed;
   top: 0;
-  background-color: transparent;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+  background-color: rgba(95, 96, 99, 0.5);
+  box-shadow: 0px 2px 5px rgba(95, 96, 99, 0.5);
   flex-wrap: wrap;
   height: var(--navbar-height);
   transition: background-color 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 2px;
 }
 
 @keyframes slide-in {
@@ -68,7 +68,7 @@ nav ul li a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 20px 50px; /* Increase the right and left padding */
+  padding: 10px 10px; /* Increase the right and left padding */
 }
 
 nav ul li a:hover,
@@ -81,12 +81,13 @@ nav ul li a[href="/about"]:hover {
 
 /* Smoother transition for active link */
 nav ul li a.active {
-  background-color: rgba(125, 161, 235, 0.1);
+  background-color: rgba(95, 96, 99, 0.5);
   transition: background-color 0.2s ease-out;
 }
 
 /* Animate link expansion on hover */
 nav ul li a:hover {
+  background-color: rgba(95, 96, 99, 0.5);
   transform: scale(1.05); /* Subtle zoom-in effect */
 }
 

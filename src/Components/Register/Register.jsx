@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import { useUserAuth } from "../../Context/UserAuthContext";
+import { eye, eyeOff } from "ionicons/icons"; // Import eye icons from Ionicons
+import { IonIcon } from "@ionic/react"; // Import IonIcon from Ionicons
 import "./Styles.css";
 
 const Register = () => {
@@ -9,6 +11,7 @@ const Register = () => {
   const [Password, setPassword] = useState("");
   const [Name, setName] = useState("");
   const [Address, setAddress] = useState("");
+  const [ShowPassword, setShowPassword] = useState(false);
   const [ProfilePicture, setProfilePicture] = useState(null);
   const [error, setError] = useState("");
   const [emailVerificationSent, setEmailVerificationSent] = useState(false);
@@ -47,7 +50,9 @@ const Register = () => {
           email: userCredential.user.email,
           name: Name,
           address: Address,
-          profilePicture: ProfilePicture ? URL.createObjectURL(ProfilePicture) : null,
+          profilePicture: ProfilePicture
+            ? URL.createObjectURL(ProfilePicture)
+            : null,
         });
 
         // Save the user's name and profile picture in local storage
@@ -56,7 +61,6 @@ const Register = () => {
           "profilePicture",
           ProfilePicture ? URL.createObjectURL(ProfilePicture) : null
         );
-
       } catch (err) {
         setError(err.message);
       }
@@ -70,7 +74,10 @@ const Register = () => {
           <h1 style={{ marginBottom: "20px" }}>Register</h1>
           {error && <p className="error-msg">{error}</p>}
           {emailVerificationSent ? (
-            <p>Email verification sent. Please check your email to verify your account.</p>
+            <p>
+              Email verification sent. Please check your email to verify your
+              account.
+            </p>
           ) : (
             <>
               <input
@@ -98,10 +105,21 @@ const Register = () => {
               />
               <br />
               <input
-                type="password"
+                type={ShowPassword ? "text" : "password"}
                 placeholder="Password"
                 minLength={8}
                 onChange={(e) => setPassword(e.target.value)}
+              />
+              <IonIcon
+                icon={ShowPassword ? eye : eyeOff}
+                style={{
+                  position: "absolute",
+                  right: "50px", // adjust here based on your icon's width
+                  top: "49%",
+                  transform: "translate(-50%, -50%)", // adjust here
+                  cursor: "pointer",
+                }}
+                onClick={() => setShowPassword(!ShowPassword)}
               />
               <br />
               <input
