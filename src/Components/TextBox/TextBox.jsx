@@ -5,10 +5,7 @@ import Footer from "../Footer/Footer";
 import { saveAs } from "file-saver";
 import jsPDF from "jspdf";
 
-<<<<<<< HEAD
 import Carousel from '../Carousel/Carousel';
-=======
->>>>>>> f3fe731cec13294aa938c2594da324a579084c5f
 import { useHistory } from "../HistoryContext";
 
 const TextBox = () => {
