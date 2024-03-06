@@ -1,40 +1,4 @@
-// import React, { useState, useEffect } from 'react';
-// import { useSpring, animated } from 'react-spring';
-// import './Carousel.css';
-// import images from'./images.jpg';
-// import images1 from'./images1.jpg';
 
-// import images2 from'./images2.jpg';
-
-// const Carousel = () => {
-//   const [index, setIndex] = useState(0);
-//   const images = [
-//    images,
-//    images1,
-//    images2,
-//   ];
-//   console.log('images array:', images);
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setIndex((prevIndex) => (prevIndex + 1) % images.length);
-//     }, 3000); // Change the duration for each slide
-
-//     return () => clearInterval(interval);
-//   }, [images.length]);
-
-//   const carouselProps = useSpring({
-//     opacity: 1,
-//     from: { opacity: 0 },
-//   });
-
-//   return (
-//     <animated.div style={carouselProps} className="carousel">
-//       <img src={images[index]} alt={`Slide ${index + 1}`} />
-//     </animated.div>
-//   );
-// };
-
-// export default Carousel;
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import './Carousel.css';

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "./header-img.svg";
-import { ArrowRightCircle } from 'react-bootstrap-icons';
+//import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import './Banner.css';
@@ -64,10 +64,10 @@ const Banner = () => {
                 <h1>{`Welcome to Text Summarizer`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Application", "Extractive", "Summarizer" ]'><span className="wrap">{text}</span></span></h1>
                   <p>
 An extractive summarizer is a natural language processing tool that condenses large textual content by selecting and presenting the most important sentences or phrases, preserving the original meaning.</p>
-               <Link to="/textbox">
+               {/* <Link to="/textbox">
                   
                   <button >Go To Summary <ArrowRightCircle size={25} /></button>
-                  </Link>
+                  </Link> */}
               </div>}
             </TrackVisibility>
           </Col>

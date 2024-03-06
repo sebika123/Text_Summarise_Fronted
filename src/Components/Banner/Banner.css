@@ -3,15 +3,14 @@
     margin-top:1450px;
 
     padding: 260px 0 100px 0;
-    /* background-image: url('./assets/img/banner-bg.png'); */
+  
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
     margin-right:400px;
-    height: -100px;
+    height: 100%;
     width:100%;
     overflow:hidden;
-    /* margin-top:1100px; */
     margin-left:100px;
   }
   .banner .tagline {

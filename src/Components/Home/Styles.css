@@ -1,14 +1,12 @@
 
-<<<<<<< HEAD
 #home{
-  margin-top:-800px;
-  height:80vh;
+  margin-top:-700px;
+  height:130vh;
 }
 #banner{
-  margin-top:350px; 
+  margin-top:150px; 
+  height:100%;
 }
-=======
->>>>>>> f3fe731cec13294aa938c2594da324a579084c5f
 body {
   margin: 0;
   padding: 0;
@@ -64,7 +62,7 @@ body {
   margin: auto; /* Center the text container */
   animation: colorChange 5s infinite alternate; 
   margin-bottom:1100px;
-  margin-top:-70px;
+  margin-top:-300px;
 }
 @keyframes fadeInUp {
   from {
@@ -94,6 +92,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  
 
  
 }
@@ -101,10 +100,10 @@ button {
 button:hover {
   background-color: #2980b9;
 }
-#skills{
-  /* height:50px; */
-}
-
+/* #skills{
+ 
+ 
+} */
 .footer {
   position: fixed;
   bottom: 0;

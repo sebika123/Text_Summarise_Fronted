@@ -98,8 +98,8 @@ const TextBox = () => {
             <label htmlFor="" > Enter Your Text Here</label>
           </div> */}
           <textarea
-            cols="30"
-            rows="10"
+            cols="60"
+            rows="15"
             id="txt-area"
             onChange={handleChange}
           ></textarea>
@@ -172,7 +172,7 @@ const TextBox = () => {
         )}
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

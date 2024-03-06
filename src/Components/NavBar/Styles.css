@@ -22,7 +22,7 @@ nav {
   flex-wrap: wrap;
   height: var(--navbar-height);
   transition: background-color 0.3s ease-in-out;
-  z-index: 2px;
+  z-index: 1;
 }
 
 @keyframes slide-in {

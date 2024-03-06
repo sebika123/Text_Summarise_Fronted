@@ -1,8 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  
-
   background-image: url("download.jpg");
   background-size: cover;
   background-position: center;
@@ -18,18 +16,16 @@ body {
   min-height: 250%;
   padding-bottom: 50px;
   margin-bottom: 20px;
-  margin-top:-100px;
- 
-  /* height: 300vh; */
+  margin-top: -100px;
 }
 
-#cara{
-  display:flex;
-  align-items:center;
+#cara {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-top:-105px;
-  
+  margin-top: 300px;
 }
+
 #txt-box {
   display: flex;
   flex-direction: row;
@@ -37,9 +33,9 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 100px;
-  margin-top: 300px;
-  height:120%;
-  
+  margin-top: 600px;
+  height: 120%;
+  /* z-index:1; */
 }
 
 #inp-box {
@@ -47,19 +43,14 @@ body {
   display: flex;
   flex-direction: column;
   padding: 30px;
- 
-
-
   border-radius: 8px;
   margin-right: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: flex 0.3s ease-in-out;
   margin-bottom: 10px;
   margin-top: 400px;
-
   background-color: transparent;
-  animation: boxSlideIn 0.5s ease-in-out; /* Add a slide-in animation */
-  /* background-color: rgba(48, 125, 254, 0.2); */
+  animation: boxSlideIn 0.5s ease-in-out;
 }
 
 #out-box {
@@ -67,18 +58,13 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
- 
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: flex 0.3s ease-in-out;
   margin-bottom: 10px;
   margin-top: 400px;
-
-  animation: boxSlideIn 0.5s ease-in-out; 
+  animation: boxSlideIn 0.5s ease-in-out;
   background-color: transparent;
-}
-#out-box div[style="color: white; margin-bottom: 10px;"] {
-  color: black;
 }
 
 #txt-area {
@@ -89,7 +75,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   resize: none;
-
+  z-index:0.8;
 }
 
 #output-area {
@@ -119,21 +105,60 @@ body {
   margin-bottom: 20px;
 }
 
-.footer {
-  margin-top: 20px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-
-  padding: 10px;
-  background-color: rgba(51, 51, 51, 0.8);
-  color: #fff;
+#download-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-#out-box {
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+#download-buttons button {
+  padding: 8px 12px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+#btn button {
+  margin-top: 0;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+#out-box div[style="color: black; margin-bottom: 10px;"] {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#content {
+  border-color: #007bff;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+#wordcount-button {
+  padding: 5px 5px;
+  border-radius: 5px;
+  width: 120px;
+  background-color: rgb(41, 100, 228);
+  font-size: 14px;
+}
+
+.output-container {
+  font-weight: bold;
+  animation: textAnimation 2s ease-in-out infinite;
+}
+
+/* Additional styles for improved textarea interaction */
+#inp-box:focus-within {
+  outline: none;
+  border: 1px solid #007bff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#inp-box label {
+  margin-bottom: 5px;
+}
+
+#wordcount-div {
+  margin-top: 10px;
 }
 
 .fadeInUp {
@@ -151,66 +176,14 @@ body {
     transform: none;
   }
 }
+
 @keyframes boxSlideIn {
   from {
-    transform: translateX(100px); 
+    transform: translateX(100px);
     opacity: 0;
   }
   to {
     transform: translateX(0);
     opacity: 1;
   }
-}
-
-#download-buttons {
-  display: flex;
-  justify-content: center; 
-  margin-top: 10px; 
-}
-
-#download-buttons button {
-  padding: 8px 12px; 
-  font-size: 14px; 
-  margin-right: 10px; 
-}
-
-#btn button {
-  margin-top: 0; 
-  padding: 8px 12px; 
-  font-size: 14px; 
-}
-
-#out-box div[style="color: black; margin-bottom: 10px;"] {
-  font-weight: bold; 
-  font-size: 14px; 
-}
-
-#content {
-  border-color: #007bff; /* Highlight output border */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.95
-  ); /* Slightly more opaque background */
-}
-
-#txt-box{
-  padding:10px;
-  margin-bottom:-100px;
-}
-
-#wordcount-button{
-padding:5px 5px;
-border-radius: 5px;
-width:120px;
-background-color:rgb(41, 100, 228);
-font-size: 14px;
-
-
-}
-
-.output-container{
-  font-weight: bold; /* Make text bold */
-  animation: textAnimation 2s ease-in-out infinite;
 }
