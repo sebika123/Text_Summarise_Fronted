@@ -11,12 +11,29 @@ const NavBar = () => {
   const [showHistory, setShowHistory] = useState(false);
   const { history, addToHistory } = useHistory();
   const [selectedHistory, setSelectedHistory] = useState(null);
+  const { clearAllHistory } = useHistory(); //clear history
+
+
+  // const handleLogout = async () => {
+  //   await logOut();
+  //   navigate("/login");
+  // };
+
+
 
   const handleLogout = async () => {
+    // Clear the entire history when logging out
+    clearAllHistory();
+
+    // Perform the actual logout action (e.g., sign out the user)
     await logOut();
+
+    // Redirect or perform other actions as needed
     navigate("/login");
   };
 
+
+  
   const handleShowHistory = () => {
     setShowHistory(!showHistory);
   };

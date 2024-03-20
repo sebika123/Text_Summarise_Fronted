@@ -128,8 +128,9 @@ const TextBox = () => {
           />
           <div id="btn">
             <button
-              style={{ marginTop: "10px", marginTop: "-20px" }}
+              style={{ marginTop: "10px", marginTop: "-20px"}}
               type="submit"
+              
             >
               Summarise
             </button>
@@ -138,7 +139,7 @@ const TextBox = () => {
         {showOutput && (
           <div id="out-box">
             <div class="output-container">
-              <label for="input-text-or-link">Output</label>
+              <label for="input-text-or-link">Summary</label>
             </div>
             <div id="output-area">
               <div id="content">{summaryData.summary}</div>

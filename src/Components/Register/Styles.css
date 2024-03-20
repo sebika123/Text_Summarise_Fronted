@@ -6,11 +6,18 @@
   align-items: center;
   overflow-y: auto; 
 }
+/* .text-summarizer {
+  animation: fadeIn 0.5s ease-in-out;
+  border: 1px solid rgba(95, 96, 99, 0.5);
+  background-color: rgba(95, 96, 99, 0.5);
+  box-sizing: border-box;
+
+} */
 
 #registration-form {
   animation: fadeIn 0.5s ease-in-out;
-  background-color:rgba(95, 96, 99, 0.5);
-  border: 1px solid rgba(95, 96, 99, 0.5);
+  background-color:rgba(121, 85, 136, 0.5);
+  border: 1px solid rgba(121, 85, 136, 0.5);
   padding: 30px;
   width: 400px;
   box-sizing: border-box;

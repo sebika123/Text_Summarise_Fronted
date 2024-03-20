@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import TextSummarizer from "../TextSummarizer/TextSummarizer"
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import { useUserAuth } from "../../Context/UserAuthContext";
 import { eye, eyeOff } from "ionicons/icons"; // Import eye icons from Ionicons
@@ -70,7 +71,10 @@ const Register = () => {
   return (
     <>
       <div className="container">
+
         <form onSubmit={handleSubmit} id="registration-form">
+          
+      <TextSummarizer className="text-summarizer" />
           <h1 style={{ marginBottom: "20px" }}>Register</h1>
           {error && <p className="error-msg">{error}</p>}
           {emailVerificationSent ? (

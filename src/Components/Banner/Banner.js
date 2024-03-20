@@ -15,7 +15,7 @@ const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Web Developer", "Web Designer", "UI/UX Designer" ];
+  const toRotate = [ "Web Application" ];
   const period = 2000;
   
 
@@ -61,7 +61,7 @@ const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Let's Summarize!</span>
-                <h1>{`Welcome to Text Summarizer`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Application", "Extractive", "Summarizer" ]'><span className="wrap">{text}</span></span></h1>
+                <h1>{`Welcome to Text Summarizer`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Site", "Extractive", "Summarizer"]'><span className="wrap">{text}</span></span></h1>
                   <p>
 An extractive summarizer is a natural language processing tool that condenses large textual content by selecting and presenting the most important sentences or phrases, preserving the original meaning.</p>
                {/* <Link to="/textbox">

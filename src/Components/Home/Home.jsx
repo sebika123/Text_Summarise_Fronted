@@ -37,12 +37,13 @@ const Home = () => {
            
            
             <Link to="/textbox">
-              <button style={{width:'20%',textAlign:'center',justifyContent:'center',marginLeft:'500px'}}>Click Here For Summary</button>
+              <button style={{width:'20%',textAlign:'center',justifyContent:'center',marginLeft:'350px'}}>Click Here For Summary</button>
             </Link>
           </animated.div>
          
       
       </div>
+      {/* <Skills /> */}
       <Footer />
     </div>
     </div>

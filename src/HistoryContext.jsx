@@ -65,12 +65,6 @@ export const HistoryProvider = ({ children }) => {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    // Clear the history in local storage and in the state on component mount (refresh)
-    localStorage.removeItem('history');
-    setHistory([]);
-  }, []);
-
-  useEffect(() => {
     const historyFromLocalStorage = JSON.parse(localStorage.getItem('history')) || [];
     setHistory(historyFromLocalStorage);
   }, []);
@@ -78,6 +72,7 @@ export const HistoryProvider = ({ children }) => {
   const addToHistory = (data, userId) => {
     setHistory((prevHistory) => {
       const userHistoryIndex = prevHistory.findIndex((entry) => entry.userId === userId);
+
       const updatedHistory = [...prevHistory];
 
       if (userHistoryIndex !== -1) {
@@ -90,13 +85,21 @@ export const HistoryProvider = ({ children }) => {
       }
 
       localStorage.setItem('history', JSON.stringify(updatedHistory));
+
       return updatedHistory;
     });
+  };
+
+  const clearAllHistory = () => {
+    // Clear the entire history
+    setHistory([]);
+    localStorage.removeItem('history');
   };
 
   const contextValue = {
     history,
     addToHistory,
+    clearAllHistory,
   };
 
   return (
