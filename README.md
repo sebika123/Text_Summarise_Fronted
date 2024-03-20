@@ -72,4 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # For Running Backend
 Clone this in your system https://github.com/aastutijha/backend.git 
-and run **python app.py** along with running above Fronted code with ** npm start**
+and run **python app.py** along with running above Fronted code with **npm start**
